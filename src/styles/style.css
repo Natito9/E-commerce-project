@@ -8,9 +8,16 @@
     /* buttons */
     --secondary-button-text-color: #ffffff;
     --button-secondary-color: #647b6e;
+    --button-width: 100px;
+    --button-height: 43px;
+    --button-padding: 10px 16px;
+    /* icons/SVGs */
+    --icon-width: 20px;
+    /* images */
+    --image-width: 130px;
 
 }
 
 body {
-    background-color: blue;
+    background-color: var(--main-bg-color);
 }
