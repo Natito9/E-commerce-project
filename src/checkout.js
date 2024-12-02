@@ -14,7 +14,9 @@ let items = [whiteShirt, blackPants, blackPants]
 const priceEL = document.querySelector("#checkout-total-price")
 const cartEl = document.querySelector("#checkout-cart")
 
+
 function displayProducts() {
+    let sum = 0
     for (i = 0; i < items.length; i++){
         console.log(items[i].title)
         const item = document.createElement("div")
@@ -23,10 +25,10 @@ function displayProducts() {
         <h2>${items[i].price}kr</h2>
         <img src="${items[i].img}" class="checkout-product-img">
         `
+        sum += items[i].price
+        priceEL.textContent = `Price: ${sum}`
         document.querySelector("#checkout-items").appendChild(item)
     }
-    cartEl.innerText+= ` ${items.length} items`
     
 }
 
-displayProducts()
