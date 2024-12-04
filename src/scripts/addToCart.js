@@ -24,10 +24,13 @@ function updateCart() {
 
     // Add product details
     listItem.innerHTML = `
-      <span>${item.title}</span>
-      <div class="remove-dropdown">
-          <button onclick="removeFromCart(${item.id})">Remove</button>
-      </div>
+      <span class="remove-spn">${item.title}
+        <div class="remove-dropdown">
+            <button onclick="removeFromCart(${item.id})">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>         
+        </div>
+      </span>
     `;
 
     cartItemsList.appendChild(listItem);
