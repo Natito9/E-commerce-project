@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="prod-listing.css">
-</head>
-<body>
-  <header>
-    <h1>All Products</h1>
-    <p>Explore the best items just for you</p>
-  </header>
-  <main id="product-list">
-    <!-- Products will be dynamically added here -->
-  </main>
-  <footer>
-  </footer>
-  <script type="module" src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/prod-listing.css" />
+  </head>
+  <body>
+    <header>
+      <h1>All Products</h1>
+      <p>Explore the best items just for you</p>
+      <div id="cart-counter-container">
+        <span id="cart-counter">0</span> items in cart
+      </div>
+    </header>
+    <div class="grid">
+      <main id="product-list">
+        <!-- Products will be dynamically added here -->
+      </main>
+    </div>
+    <footer></footer>
+    <script type="module" src="api.js"></script>
+    <script src="scripts/addToCart.js"></script>
+  </body>
 </html>
