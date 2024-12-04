@@ -14,6 +14,13 @@
                 <label for="checkout-mail">Mail:</label>
                 <input type="email" id="checkout-mail" required>
                 <h2>Delivery</h2>
+                <label for="checkout-country">Country</label>
+                <select name="country" id="checkout-country">
+                    <option value="swed">Sweden</option>
+                    <option value="else">Somewhere else on earth</option>
+                    <option value="mars">Martian dynasty</option>
+                </select>
+
                 <label for="checkout-first-name">First name:</label>
                 <input type="text" id="checkout-first-name" required>
                 
@@ -47,14 +54,12 @@
             </form>
 
             <section id="checkout-order-summary">
-                <h1 id="checkout-cart">Cart – </h1>
+                <h1 id="checkout-cart">Cart <br></h1>
                 <div id="checkout-items"></div>
-                <p>Subtotal:</p>
-                <p>Shipping:</p>
-                <h2 id="checkout-total-price">Total: </h2>
-                <button>Pay now</button>
+                <h2 id="checkout-total-price">Price: </h2>
+                <button id="checkout-pay-button">Pay now</button>
             </section>
-
+            </div>
     </section>
 </body>
 </html>

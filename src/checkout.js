@@ -1,34 +1,99 @@
+//this is necessary for the checkout page DOM manipulation
+const checkoutSection = document.querySelector("#checkout-order-summary")
+const priceEL = document.querySelector("#checkout-total-price");
+const cartEl = document.querySelector("#checkout-cart");
+const checkoutItems = document.querySelector("#checkout-items");
+
+//These are 2 stand in objects which represent the products fetched from the API
 const whiteShirt = {
-    title: "White Shirt",
-    price: 150,
-    img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api"
-}
+	title: "White Shirt",
+	price: 150.11,
+	img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api",
+	//If there is not an "amount" value in the API we need to manually set it to 0 when we've fetched the necessary data from the API
+	//If amount > 0 the code will add the responding item from the "items" array to the "cart" array
+	amount: 1,
+};
 
 const blackPants = {
-    title: "Black Pants",
-    price: 400,
-    img: "https://tse1.mm.bing.net/th?id=OIP.mTvA62qA5btxjDX6NYlh-QHaJa&pid=Api"
+	title: "Black Pants",
+	price: 400.52,
+	img: "https://tse1.mm.bing.net/th?id=OIP.mTvA62qA5btxjDX6NYlh-QHaJa&pid=Api",
+	//see above
+	amount: 2,
+};
+
+//This is the array which represents the shopping cart
+let cart = [whiteShirt, blackPants];
+
+//This function displays the current CART (not the buyable items) on the checkout page
+function renderCart() {
+	checkoutItems.innerHTML = ``;
+	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the amount)
+	for (i = 0; i < cart.length; i++) {
+		const item = document.createElement("div");
+		item.innerHTML = `
+        <h2>${cart[i].title}</h2>
+        <h2>${Math.round(cart[i].price * cart[i].amount * 100) / 100}kr</h2>
+        <h2>Amount: ${cart[i].amount}</h2>
+        <img src="${cart[i].img}" class="checkout-product-img">
+        <button onclick="remove(${i})">-</button>
+        
+        <button onclick="add(${i})">+</button>
+        `;
+		checkoutItems.appendChild(item);
+	}
+	calculateTotalPrice();
+	calculateItemAmount();
 }
-let items = [whiteShirt, blackPants, blackPants]
 
-const priceEL = document.querySelector("#checkout-total-price")
-const cartEl = document.querySelector("#checkout-cart")
-
-
-function displayProducts() {
-    let sum = 0
-    for (i = 0; i < items.length; i++){
-        console.log(items[i].title)
-        const item = document.createElement("div")
-        item.innerHTML = `
-        <h2>${items[i].title}</h2>
-        <h2>${items[i].price}kr</h2>
-        <img src="${items[i].img}" class="checkout-product-img">
-        `
-        sum += items[i].price
-        priceEL.textContent = `Price: ${sum}`
-        document.querySelector("#checkout-items").appendChild(item)
+//This calculates and renders out the total price of all items in the cart
+function calculateTotalPrice() {
+    let checkoutSum = 0;
+	priceEL.textContent = "Price:";
+	for (i = 0; i < cart.length; i++) {
+        checkoutSum += cart[i].price * cart[i].amount;
+		priceEL.textContent = `Price: ${Math.round(checkoutSum * 100) / 100}kr`;
+	}
+    if (cart.length === 0){
+        cartEl.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
+        priceEL.innerHTML = ""
+        /* const removedButton = document.querySelector("#checkout-pay-button")
+        remove(removedButton) */
     }
-    
 }
 
+//This calculates and renders the total amount of items in the cart
+function calculateItemAmount() {
+    let cartAmount = 0;
+    for (i = 0; i < cart.length; i++) {
+		cartAmount += cart[i].amount;
+		console.log(cartAmount);
+		cartEl.innerHTML = `<h1> Cart – items ${cartAmount} </h1>`;
+	}
+}
+
+//This decreases the "amount"-value by to the responding item from the cart OR removes the item from the array alltogether if the "amount"-value hits 0
+//This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
+function remove(index) {
+	if (cart[index].amount === 1) {
+		cart.splice(index, 1);
+	} else {
+		cart[index].amount -= 1;
+	}
+	calculateTotalPrice();
+	calculateItemAmount();
+	renderCart();
+	console.log(cart);
+}
+
+//This increases the "amount"-value by one to the responding item
+//This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
+function add(index) {
+	cart[index].amount += 1;
+	calculateTotalPrice();
+	calculateItemAmount();
+	renderCart();
+	console.log(cart);
+}
+
+renderCart();
