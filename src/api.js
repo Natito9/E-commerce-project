@@ -23,12 +23,11 @@ export async function fetchProducts() {
     }
     
 };
-
+updateCartCounter();
 let result = await fetchProducts();
 let container = document.getElementById("product-list");
 
 result.forEach(element => {    
-    console.log(element)
     let truncatedDescription = element.description.length > 30 
         ? element.description.substring(0, 100) + "..." 
         : element.description;
