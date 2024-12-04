@@ -1,6 +1,16 @@
 // Cart array to hold products
 let cart = [];
 
+// Function to load cart from local storage
+function loadCart() {
+  // Check if there is a cart in localStorage
+  const savedCart = localStorage.getItem("cart");
+  if (savedCart) {
+    cart = JSON.parse(savedCart);  // Parse and load cart from localStorage
+    updateCart();  // Update the display
+  }
+}
+
 // Function to add a product to the cart
 function addToCart(product) {
   cart.push(product);
@@ -38,4 +48,9 @@ function updateCart() {
 
   // Update cart counter
   document.getElementById("cart-counter").textContent = cart.length;
+
+  // Save the updated cart to localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+window.onload = loadCart;
