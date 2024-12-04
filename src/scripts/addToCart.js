@@ -26,10 +26,7 @@ function updateCart() {
     listItem.innerHTML = `
       <span>${item.title}</span>
       <div class="remove-dropdown">
-        <button>Options</button>
-        <div class="remove-dropdown-content">
           <button onclick="removeFromCart(${item.id})">Remove</button>
-        </div>
       </div>
     `;
 
