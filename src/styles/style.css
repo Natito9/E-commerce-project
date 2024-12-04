@@ -8,9 +8,8 @@
     /* buttons */
     --secondary-button-text-color: #ffffff;
     --button-secondary-color: #647b6e;
-
 }
 
 body {
-    background-color: blue;
+    background-color: rgb(255, 255, 255);
 }
