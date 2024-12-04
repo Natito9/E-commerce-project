@@ -82,3 +82,46 @@
 #cart-counter-container:hover #cart-counter {
   background-color: #45a049;  /* Slightly darker green */
 }
+
+/* Style for the remove dropdown menu */
+.remove-dropdown {
+  position: relative;
+}
+
+.remove-dropdown button {
+  background-color: #ff4f4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Dropdown menu styling */
+.remove-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.remove-dropdown:hover .remove-dropdown-content {
+  display: block;
+}
+
+.remove-dropdown-content button {
+  background-color: transparent;
+  color: #ff4f4f;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  text-align: left;
+}
+
+.remove-dropdown-content button:hover {
+  background-color: #f0f0f0;
+}

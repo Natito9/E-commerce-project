@@ -1,27 +1,41 @@
+// Cart array to hold products
+let cart = [];
 
+// Function to add a product to the cart
 function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
-    // Check if the product is already in the cart
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
-    if (existingProductIndex !== -1) {
-      // Increase the amount if the product is already in the cart
-      cart[existingProductIndex].Amount += 1;
-    } else {
-      // Add the product to the cart with amount 1
-      cart.push({ ...product, Amount: 1 });
-    }
-  
-    // Save the updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-  
-    // Update cart counter (Optional)
-    updateCartCounter();
-  }
+  cart.push(product);
+  updateCart();
+}
 
-  // Update the cart counter (show how many items are in the cart)
-function updateCartCounter() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartCounter = document.getElementById('cart-counter');
-    cartCounter.textContent = cart.reduce((total, item) => total + item.Amount, 0);
-  }
+// Function to remove a product from the cart
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  updateCart();
+}
+
+// Function to update the cart display
+function updateCart() {
+  let cartItemsList = document.getElementById("cart-items-list");
+  cartItemsList.innerHTML = "";  // Clear the current cart items
+
+  cart.forEach(item => {
+    let listItem = document.createElement("li");
+    listItem.classList.add("cart-item");
+
+    // Add product details
+    listItem.innerHTML = `
+      <span>${item.title}</span>
+      <div class="remove-dropdown">
+        <button>Options</button>
+        <div class="remove-dropdown-content">
+          <button onclick="removeFromCart(${item.id})">Remove</button>
+        </div>
+      </div>
+    `;
+
+    cartItemsList.appendChild(listItem);
+  });
+
+  // Update cart counter
+  document.getElementById("cart-counter").textContent = cart.length;
+}

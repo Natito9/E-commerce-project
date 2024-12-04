@@ -23,7 +23,7 @@ export async function fetchProducts() {
     }
     
 };
-updateCartCounter();
+
 let result = await fetchProducts();
 let container = document.getElementById("product-list");
 
@@ -70,14 +70,10 @@ result.forEach(element => {
 });
 
 
-// Event listener for Add to Cart buttons
-container.addEventListener('click', function (event) {
+  document.getElementById("product-list").addEventListener("click", function(event) {
     if (event.target.classList.contains('add-to-cart')) {
-      // Find the product by ID (using the data-id attribute)
       const productId = event.target.getAttribute('data-id');
       const product = result.find(item => item.id === parseInt(productId));
-  
-      // Add the product to the cart
       if (product) {
         addToCart(product);
       }
