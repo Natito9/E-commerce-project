@@ -1,4 +1,7 @@
 export async function fetchProducts() {
+    // Show loading spinner
+    document.getElementById("loading-spinner").style.display = "block";
+
     //fetch all the products from API
     const apiUrl = 'https://fakestoreapi.com/products';
 
@@ -11,6 +14,7 @@ export async function fetchProducts() {
         for (let i = 0; i < products.length; i++){
             products[i][key] = 0;
         }
+        document.getElementById("loading-spinner").style.display = "none";
         return products;
 
     } catch(error){
@@ -24,6 +28,11 @@ let result = await fetchProducts();
 let container = document.getElementById("product-list");
 
 result.forEach(element => {    
+    console.log(element)
+    let truncatedDescription = element.description.length > 30 
+        ? element.description.substring(0, 100) + "..." 
+        : element.description;
+
     let card = `<div class="card">         
     <h4>Fjallraven - Foldsack No. 1 Backpack</h4>
     <img
@@ -32,12 +41,11 @@ result.forEach(element => {
       class="product-image"
     />
     <p class="description">
-      ${element.description}
+      ${truncatedDescription}
     </p>
     <p class="price">Price: $${element.price}</p>
-    <p class="rating">Rating: ${element.rate} (${element.count} reviews)</p>
+    <p class="rating">Rating: ${element.rating.rate} (${element.rating.count} reviews)</p>
     <p class="category">Category: ${element.category}</p>
-    <p class="amount">Amount:${element.amount} </p>
     <button class="add-to-cart" data-id="${element.id}">Add to Cart</button>
     <div class="shine"></div>
     <div class="background">
