@@ -135,3 +135,10 @@
 #cart-items-list{
   line-height: 2.2; 
 }
+
+#highlighted-item{
+  border: solid 10px red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
