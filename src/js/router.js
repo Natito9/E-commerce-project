@@ -3,22 +3,25 @@ import { loadProducts } from './prod-listing.js';
 
 const routerConfig = {
     '/': {
-        path: '/pages/home.html',
-        loadFunction:loadProducts
+        path: '/pages/home.html', //the html file related to the path
+        loadFunction: loadProducts // the loader function related to the path
     },
     '/checkout': {
-        path: '/pages/checkout.html',
-        loadFunction: null
+        path: '/pages/checkout.html',//the html file related to the path
+        loadFunction: null // the loader function related to the path
     }
 }
 
 
 const renderPage = async (path,loader)=> {
     try {
+        // copy the html codes from the path
         const response = await fetch(path)
         const codeOfThePathFile = await response.text()
 
         content.innerHTML = codeOfThePathFile
+
+        // if the route has a loader function, call the loader function
         if(!!loader){
             loader()
         }
@@ -51,8 +54,13 @@ export function registerRoute() {
     // if if the user sends a dummy address (like /dummy) we should show a notfound page or redirect it to home
     // so by default all requests goes to home
     let pathOfTheRoute = '/'
+
+    // also, each page might have a loader function [like loadProducts],
+    // we want to know is there any loader for the path or not
+    // by default we will set the path loader to null to make sure if that path is ready
     let loader = null
-    // but if the address is correct, we show the correct page
+
+    // if the address is correct, we show the related html file or loader function
     if(!!routerItem){
         pathOfTheRoute = routerItem.path
         loader = routerItem.loadFunction
