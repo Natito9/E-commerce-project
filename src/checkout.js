@@ -1,13 +1,13 @@
 //this is necessary for the checkout page DOM manipulation
-const checkoutSection = document.querySelector("#checkout-order-summary")
-const priceEL = document.querySelector("#checkout-total-price");
+const orderSummary = document.querySelector("#checkout-order-summary");
+const shippingEl = document.querySelector("#checkout-shipping-cost");
+const totalEL = document.querySelector("#checkout-total-price");
 const cartEl = document.querySelector("#checkout-cart");
 const checkoutItems = document.querySelector("#checkout-items");
-
-//These are 2 stand in objects which represent the products fetched from the API
+/* let shippingPrice = document.querySelector("#checkout-shipping").value */ //These are 2 stand in objects which represent the products fetched from the API
 const whiteShirt = {
 	title: "White Shirt",
-	price: 150.11,
+	price: 150.33,
 	img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api",
 	//If there is not an "amount" value in the API we need to manually set it to 0 when we've fetched the necessary data from the API
 	//If amount > 0 the code will add the responding item from the "items" array to the "cart" array
@@ -16,7 +16,7 @@ const whiteShirt = {
 
 const blackPants = {
 	title: "Black Pants",
-	price: 400.52,
+	price: 400.81,
 	img: "https://tse1.mm.bing.net/th?id=OIP.mTvA62qA5btxjDX6NYlh-QHaJa&pid=Api",
 	//see above
 	amount: 2,
@@ -48,26 +48,30 @@ function renderCart() {
 
 //This calculates and renders out the total price of all items in the cart
 function calculateTotalPrice() {
-    let checkoutSum = 0;
-	priceEL.textContent = "Price:";
+	let checkoutSum = 0;
+	totalEL.textContent = "Price: ";
+	shippingEl.textContent = `Shipping: ${
+		document.querySelector("#checkout-shipping").value
+	}kr`;
 	for (i = 0; i < cart.length; i++) {
-        checkoutSum += cart[i].price * cart[i].amount;
-		priceEL.textContent = `Price: ${Math.round(checkoutSum * 100) / 100}kr`;
+		checkoutSum += cart[i].price * cart[i].amount /* + shippingPrice.value */;
 	}
-    if (cart.length === 0){
-        cartEl.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
-        priceEL.innerHTML = ""
-        /* const removedButton = document.querySelector("#checkout-pay-button")
+	totalEL.textContent = `Total: ${
+checkoutSum + document.querySelector("#checkout-shipping").value
+	}`;
+	if (cart.length === 0) {
+		orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
+		document.querySelector("#checkout-form-section").innerHTML = "";
+		/* const removedButton = document.querySelector("#checkout-pay-button")
         remove(removedButton) */
-    }
+	}
 }
 
 //This calculates and renders the total amount of items in the cart
 function calculateItemAmount() {
-    let cartAmount = 0;
-    for (i = 0; i < cart.length; i++) {
+	let cartAmount = 0;
+	for (i = 0; i < cart.length; i++) {
 		cartAmount += cart[i].amount;
-		console.log(cartAmount);
 		cartEl.innerHTML = `<h1> Cart – items ${cartAmount} </h1>`;
 	}
 }
@@ -83,7 +87,6 @@ function remove(index) {
 	calculateTotalPrice();
 	calculateItemAmount();
 	renderCart();
-	console.log(cart);
 }
 
 //This increases the "amount"-value by one to the responding item
@@ -93,7 +96,6 @@ function add(index) {
 	calculateTotalPrice();
 	calculateItemAmount();
 	renderCart();
-	console.log(cart);
 }
 
 renderCart();
