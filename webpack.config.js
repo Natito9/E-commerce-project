@@ -18,7 +18,9 @@ module.exports = {
     },
     port: 9001,
     watchFiles: ["./src/template.html"],
-    historyApiFallback: true, // Redirects all requests to template.html
+      historyApiFallback: {
+          index: '/template.html', // Ensures all requests serve "template.html"
+      },
   },
   plugins: [
     new HtmlWebpackPlugin({
