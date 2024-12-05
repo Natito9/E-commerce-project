@@ -1,25 +1,27 @@
 const content = document.getElementById('content')
+import { loadProducts } from './prod-listing.js';
 
 const routerConfig = {
     '/': {
         path: '/pages/home.html',
-        label: 'Homepage',
+        loadFunction:loadProducts
     },
     '/checkout': {
         path: '/pages/checkout.html',
-        icon: 'star', // this is only for example
-        hide: true, // this is only for exmaple
-        label: 'Checkout'
+        loadFunction: null
     }
 }
 
 
-const renderPage = async (path)=> {
+const renderPage = async (path,loader)=> {
     try {
         const response = await fetch(path)
         const codeOfThePathFile = await response.text()
 
         content.innerHTML = codeOfThePathFile
+        if(!!loader){
+            loader()
+        }
     } catch (e) {
         console.info(e.toString())
     }
@@ -49,13 +51,13 @@ export function registerRoute() {
     // if if the user sends a dummy address (like /dummy) we should show a notfound page or redirect it to home
     // so by default all requests goes to home
     let pathOfTheRoute = '/'
-
+    let loader = null
     // but if the address is correct, we show the correct page
     if(!!routerItem){
         pathOfTheRoute = routerItem.path
+        loader = routerItem.loadFunction
     }
 
 
-    renderPage(pathOfTheRoute)
-
+    renderPage(pathOfTheRoute,loader)
 }
