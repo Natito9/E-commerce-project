@@ -1,6 +1,6 @@
 import { fetchProducts } from "./api.js";
 
-async function loadProducts() {
+export async function loadProducts() {
   // Show loading spinner
   document.getElementById("loading-spinner").style.display = "block";
 
@@ -57,6 +57,4 @@ async function loadProducts() {
   document.getElementById("loading-spinner").style.display = "none";
 }
 
-// Call loadProducts function to display the products
-loadProducts();
 
