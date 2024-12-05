@@ -18,11 +18,22 @@ module.exports = {
     },
     // port: 9001,
     watchFiles: ["./src/template.html"],
+      historyApiFallback: {
+          index: '/template.html', // Ensures all requests serve "template.html"
+      },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
-      // filename: 'template.html', 
+      filename: 'template.html',
+    }),
+    new HtmlWebpackPlugin({
+        template: './src/pages/home.html',
+        filename: 'pages/home.html',
+    }),
+    new HtmlWebpackPlugin({
+        template: './src/pages/checkout.html',
+        filename: 'pages/checkout.html',
     }),
   ],
   module: {

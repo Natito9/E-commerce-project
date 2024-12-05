@@ -11,11 +11,11 @@ export async function fetchProducts() {
         for (let i = 0; i < 20; i++){
             products[i][key] = 0;
         }
+        console.log(products)
         return products;
 
     } catch(error){
         console.error('Error fetching products:',error);
         return [];
     }
-    
 };
