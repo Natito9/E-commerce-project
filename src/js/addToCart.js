@@ -2,7 +2,7 @@
 let cart = [];
 
 // Function to load cart from local storage
-function loadCart() {
+export function loadCart() {
   // Check if there is a cart in localStorage
   const savedCart = localStorage.getItem("cart");
   if (savedCart) {
@@ -12,19 +12,19 @@ function loadCart() {
 }
 
 // Function to add a product to the cart
-function addToCart(product) {
+export function addToCart(product) {
   cart.push(product);
   updateCart();
 }
 
 // Function to remove a product from the cart
-function removeFromCart(productId) {
+export function removeFromCart(productId) {
   cart = cart.filter(item => item.id !== productId);
   updateCart();
 }
 
 // Function to update the cart display
-function updateCart() {
+export function updateCart() {
   let cartItemsList = document.getElementById("cart-items-list");
   cartItemsList.innerHTML = "";  // Clear the current cart items
 
