@@ -1,0 +1,144 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
+  gap: 20px; /* Space between cards */
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+.grid {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Style the cart counter container */
+#cart-counter-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0f4f8; /* Light background color */
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+/* Style the cart counter number */
+#cart-counter {
+  background-color: #4caf50; /* Green background for the badge */
+  color: white; /* White text for contrast */
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  margin-right: 10px; /* Space between badge and text */
+  min-width: 30px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the container */
+#cart-counter-container:hover {
+  background-color: #e0e7ff; /* Light blue background on hover */
+}
+
+/* Hover effect for the counter */
+#cart-counter-container:hover #cart-counter {
+  background-color: #45a049; /* Slightly darker green */
+}
+
+/* Style for the remove dropdown menu */
+.remove-dropdown {
+  position: relative;
+  display: inline;
+}
+
+.remove-dropdown button {
+  background-color: #ff4f4f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Dropdown menu styling */
+.remove-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.remove-dropdown:hover .remove-dropdown-content {
+  display: block;
+}
+
+.remove-dropdown-content button {
+  background-color: transparent;
+  color: #ff4f4f;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  text-align: left;
+}
+
+.remove-dropdown-content button:hover {
+  background-color: #f0f0f0;
+}
+.remove-spn {
+  background-color: #bdc3c7;
+  padding: 4px 0 6px 10px;
+  border-radius: 5px;
+  margin: 7px;
+}
+
+#cart-items-list{
+  line-height: 2.2; 
+}
+
+#highlighted-item{
+  border: solid 10px red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
