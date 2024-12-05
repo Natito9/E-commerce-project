@@ -57,7 +57,7 @@ function calculateTotalPrice() {
 		checkoutSum += cart[i].price * cart[i].amount /* + shippingPrice.value */;
 	}
 	totalEL.textContent = `Total: ${
-checkoutSum + document.querySelector("#checkout-shipping").value
+	checkoutSum + document.querySelector("#checkout-shipping").value
 	}`;
 	if (cart.length === 0) {
 		orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
