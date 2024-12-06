@@ -1,4 +1,5 @@
 import { fetchProducts } from "./api.js";
+import { openProductModal } from "./product-descript.js";
 
 export async function loadProducts() {
   // Show loading spinner
@@ -9,7 +10,7 @@ export async function loadProducts() {
 
   result.forEach((element) => {
     let card = `
-        <div class="card">         
+        <div class="card" data-id="${element.id}">         
             <h4>${element.title}</h4>
             <img
                 src="${element.image}"
@@ -44,8 +45,9 @@ export async function loadProducts() {
   document
     .getElementById("product-list")
     .addEventListener("click", function (event) {
+      const productId = event.target.getAttribute("data-id");
+      openProductModal(productId)
       if (event.target.classList.contains("add-to-cart")) {
-        const productId = event.target.getAttribute("data-id");
         const product = result.find((item) => item.id === parseInt(productId));
         if (product) {
           addToCart(product);
@@ -55,6 +57,9 @@ export async function loadProducts() {
 
   // Hide loading spinner
   document.getElementById("loading-spinner").style.display = "none";
+
+
 }
+
 
 

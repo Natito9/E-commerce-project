@@ -19,3 +19,21 @@ export async function fetchProducts() {
     }
     
 };
+
+export async function fetchSingleProduct(productId) {
+    //fetch single product
+    const apiUrl = `https://fakestoreapi.com/products/${productId}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const product = await response.json();
+
+        return product;
+    }
+
+    catch(error){
+    console.error('Error fetching products:',error);
+    return [];
+}
+
+};
