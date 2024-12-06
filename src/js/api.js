@@ -11,7 +11,6 @@ export async function fetchProducts() {
         for (let i = 0; i < products.length; i++){
             products[i][key] = 0;
         }
-        console.log(products)
         return products;
 
     } catch(error){
