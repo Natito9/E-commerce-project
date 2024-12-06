@@ -1,4 +1,5 @@
 //this is necessary for the checkout page DOM manipulation
+
 const orderSummary = document.querySelector("#checkout-order-summary");
 const shippingEl = document.querySelector("#checkout-shipping-cost");
 const totalEL = document.querySelector("#checkout-total-price");

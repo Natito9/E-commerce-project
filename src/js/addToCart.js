@@ -39,6 +39,7 @@ export function updateCart() {
 	cart.forEach((item) => {
 		let listItem = document.createElement("li");
 		listItem.classList.add("cart-item");
+    cartItemsList.appendChild(listItem);
 
 		// Add product details
 		listItem.innerHTML = `
@@ -51,7 +52,7 @@ export function updateCart() {
       </span>
     `;
 
-		cartItemsList.appendChild(listItem);
+		
 	});
 
 	// Update cart counter based on total "Amount"-value

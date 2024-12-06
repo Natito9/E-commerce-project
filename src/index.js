@@ -1,9 +1,13 @@
 import './styles/reset.css';
 import './styles/style.css';
 import './styles/prod-listing.css';
+import {registerRoute} from './js/router';
 
-import { loadProducts } from './js/prod-listing.js';
-import { fetchProductsCategories,createCategoryDropdown,setupCategoryFilter,renderProductCard  } from './js/filters.js'
+registerRoute();
+
+
+/* import { loadProducts } from './js/prod-listing.js';
+import { fetchProductsCategories,createCategoryDropdown,setupCategoryFilter,renderProductCard  } from './js/filters.js' */
 /* 
 fetchProductsCategories();
 createCategoryDropdown();
@@ -21,4 +25,3 @@ import { addToCart } from './js/addToCart.js';
 import { updateCart } from './js/addToCart.js';
 import { removeFromCart } from './js/addToCart.js'; */
 
-registerRoute();

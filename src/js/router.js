@@ -1,10 +1,10 @@
 const content = document.getElementById('content')
-import { loadProducts } from './prod-listing.js';
+import { LoadHomeScreen } from './prod-listing.js';
 
 const routerConfig = {
     '/': {
         path: '/pages/home.html', //the html file related to the path
-        loadFunction: loadProducts // the loader function related to the path
+        loadFunction: LoadHomeScreen // the loader function related to the path
     },
     '/checkout': {
         path: '/pages/checkout.html',//the html file related to the path
