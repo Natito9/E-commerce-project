@@ -13,29 +13,44 @@
 
 
 body {
+
     
 }
 
 #product-descript-container {
-    position: fixed;
-    top: 0; left: 0;
-    min-height: 100vh;
-    width: 100%;
+    position: relative;
+    top: 35%; left: 35%;
+    min-height: 12.5rem;
+    width: 25rem;
     background: #ffffff; 
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#product-descript-container .product-descript-card {
+.product-descript-card {
     display: inline-block;
-    padding: 2rem;
     text-align: center;
-    background: lightslategray;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff; 
     position: relative;
     margin: 2rem;
-    width: 40rem;
+    font-size: 0.8rem;
+}
+
+.product-image {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-descript-card .description {
+    margin: 1rem;
+}
+
+.product-descript-card .add-to-cart .close-btn {
     
+
 }
 
 

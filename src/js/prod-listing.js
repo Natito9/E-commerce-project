@@ -1,5 +1,8 @@
 import { fetchProducts } from "./api.js";
 import { openProductModal } from "./product-descript.js";
+import { addToCart } from "./addToCart.js";
+import { removeFromCart } from "./addToCart.js";
+
 
 export async function loadProducts() {
   // Show loading spinner
@@ -18,7 +21,7 @@ export async function loadProducts() {
                 class="product-image"
             />
             <p class="price">Price: $${element.price}</p>
-            <button class="add-to-cart" data-id="${element.id}">Add to Cart</button>
+            <button class="add-to-cart" data-id="${element.id}" >Add to Cart</button>
             <div class="shine"></div>
             <div class="background">
                 <div class="tiles">

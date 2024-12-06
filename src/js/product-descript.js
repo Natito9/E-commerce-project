@@ -3,7 +3,8 @@
 import { fetchSingleProduct } from "./api";
 import { addToCart } from "./addToCart";
 
-// IMPORT STYLES!
+// IMPORT STYLES:
+import "../styles/product-descript.css"
 
 
 export async function openProductModal(productId) {
@@ -19,7 +20,7 @@ export async function openProductModal(productId) {
   productImage.src = product.image
 
   const productPrice = productPopUp.querySelector(".price")
-  productPrice.textContent = product.price
+  productPrice.textContent = `Price: $${product.price}`
 
   const productDescript = productPopUp.querySelector(".description")
   productDescript.textContent = product.description
