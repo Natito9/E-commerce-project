@@ -1,7 +1,6 @@
 import { fetchProducts } from "./api.js";
 import { addToCart } from "./addToCart.js";
 import "../styles/prod-listing.css";
-/* import { removeFromCart } from "./addToCart.js"; */
 import { fetchProductsCategories,createCategoryDropdown,setupCategoryFilter } from './filters.js'
 
 

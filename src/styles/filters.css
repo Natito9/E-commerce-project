@@ -1,7 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Special+Elite&display=swap');
 
-/* body{
-    background-color: rgb(129, 126, 184);
+:root {
+    /* background */
+    --main-bg-color:#ffffff;
+    --secondary-bg-color: #E7EEEA;
+    /* text color */
+    --main-text-color: #2e302f;
+    --secondary-text-color: #575757;
+    /* buttons */
+    --secondary-button-text-color: #ffffff;
+    --button-secondary-color: #647b6e;
+    --button-width: 100px;
+    --button-height: 43px;
+    --button-padding: 10px 16px;
+    /* icons/SVGs */
+    --icon-width: 20px;
+    /* images */
+    --image-width: 130px;
+
+}
+
+body{
     font-family: "Montserrat";
 }
- */
+
+
+#filter-container{
+    select{
+        background-color: var(--button-secondary-color);
+        color: var(--secondary-button-text-color);
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+    }
+}
