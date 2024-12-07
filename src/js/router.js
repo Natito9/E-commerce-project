@@ -14,24 +14,31 @@ const routerConfig = {
 
 
 const renderPage = async (path,loader)=> {
+    const content = document.querySelector("#content");
+    console.log(content)
     try {
         // copy the html codes from the path
         const response = await fetch(path)
         const codeOfThePathFile = await response.text()
-
+        console.log(response)
+       
         content.innerHTML = codeOfThePathFile
-
+        
         // if the route has a loader function, call the loader function
         if(!!loader){
             loader()
         }
-    } catch (e) {
-        console.info(e.toString())
+    } catch (error) {
+        console.info(error.toString())
+        console.log("catching error")
     }
+     
 
 }
 
 export function registerRoute() {
+    console.log("RegisterRoute func");
+
     // we should see what request comes
     // this line will find what is the path, for example "/checkout"
     const route = location.pathname;

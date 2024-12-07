@@ -1,13 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
 
-    const openCartButton = document.querySelector("#sc-open-button");
-    openCartButton.addEventListener("click", openCart);
-});
+export function openCart(){
+    displayCart();
+}; 
 
- function openCart(){
-   
-    displayCart()
- } 
 
 function displayCart() {
     // Create the overlay (background) 
@@ -64,7 +59,7 @@ function displayCart() {
     //products to be attachet to container!!!
 
 
-    //Subtotal chekout container
+    //subtotal chekout container
     const scSubtotalCheckoutContainer = document.createElement("div")
     scSubtotalCheckoutContainer.classList.add("sc-subtotal-checkout-container")
     scSection.appendChild(scSubtotalCheckoutContainer);
@@ -113,11 +108,6 @@ function closeCart() {
         scOverlay.remove();
     }
 }
-
-
-
-
-
 
 
 //control the amount with parameter (amount)
