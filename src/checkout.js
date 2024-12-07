@@ -4,10 +4,9 @@ const shippingEl = document.querySelector("#checkout-shipping-cost");
 const totalEL = document.querySelector("#checkout-total-price");
 const cartEl = document.querySelector("#checkout-cart");
 const checkoutItems = document.querySelector("#checkout-items");
-/* let shippingPrice = document.querySelector("#checkout-shipping").value */ //These are 2 stand in objects which represent the products fetched from the API
 const whiteShirt = {
 	title: "White Shirt",
-	price: 150.33,
+	price: 149.99,
 	img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api",
 	//If there is not an "amount" value in the API we need to manually set it to 0 when we've fetched the necessary data from the API
 	//If amount > 0 the code will add the responding item from the "items" array to the "cart" array
@@ -16,7 +15,7 @@ const whiteShirt = {
 
 const blackPants = {
 	title: "Black Pants",
-	price: 400.81,
+	price: 399.99,
 	img: "https://tse1.mm.bing.net/th?id=OIP.mTvA62qA5btxjDX6NYlh-QHaJa&pid=Api",
 	//see above
 	amount: 2,
@@ -49,21 +48,22 @@ function renderCart() {
 //This calculates and renders out the total price of all items in the cart
 function calculateTotalPrice() {
 	let checkoutSum = 0;
+	let shippingPrice = document.querySelector("#checkout-shipping").value
+	Number(shippingPrice)
 	totalEL.textContent = "Price: ";
 	shippingEl.textContent = `Shipping: ${
 		document.querySelector("#checkout-shipping").value
 	}kr`;
 	for (i = 0; i < cart.length; i++) {
-		checkoutSum += cart[i].price * cart[i].amount /* + shippingPrice.value */;
+		checkoutSum += cart[i].price * cart[i].amount
 	}
+	let totalPrice = checkoutSum + Number(shippingPrice)
 	totalEL.textContent = `Total: ${
-	checkoutSum + document.querySelector("#checkout-shipping").value
-	}`;
+		totalPrice.toFixed(2)
+	}kr`;
 	if (cart.length === 0) {
 		orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
 		document.querySelector("#checkout-form-section").innerHTML = "";
-		/* const removedButton = document.querySelector("#checkout-pay-button")
-        remove(removedButton) */
 	}
 }
 

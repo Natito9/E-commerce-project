@@ -44,22 +44,22 @@
 
                 <h2>Shipping method</h2>
                 <select name="Shipping method" id="checkout-shipping" autocomplete="off" required>
-                    <option value="39" onclick="calculateTotalPrice()">Normal (39kr)</option>
-                    <option value="79" onclick="calculateTotalPrice()">Express (79kr)</option>
-                    <option value="109" onclick="calculateTotalPrice()">Overnight (109kr)</option>
+                    <option value=39 onclick="calculateTotalPrice()">Normal (39kr)</option>
+                    <option value=79 onclick="calculateTotalPrice()">Express (79kr)</option>
+                    <option value=109 onclick="calculateTotalPrice()">Overnight (109kr)</option>
                 </select>
 
 
                 <h2>Payment</h2>
                 <p>All transactions are secure and encrypted</p>
                 <label for="checkout-card-number">Card number:</label>
-                <input type="text" id="checkout-card-number" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="off" required>
+                <input type="text" id="checkout-card-number" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" pattern="[0-9\s]{12,19}" autocomplete="off" required>
                 
                 <label for="checkout-expiration-date">Expiration date:</label>
-                <input type="text" id="checkout-expiration-date" placeholder="MM/YY" inputmode="numeric" autocomplete="off" required>
+                <input type="text" id="checkout-expiration-date" placeholder="MMYY" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="off" required>
                 
                 <label for="checkout-security-code">Security code:</label>
-                <input type="text" id="checkout-security-code" placeholder="CVV" inputmode="numeric" autocomplete="off" required>
+                <input type="text" id="checkout-security-code" placeholder="CVV" inputmode="numeric" pattern="[0-9\s]{3}" autocomplete="off" required>
                 
                 <label for="checkout-card-name">Name on card:</label>
                 <input type="text" id="checkout-card-name" autocomplete="off" required>

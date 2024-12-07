@@ -22,7 +22,7 @@ export function addToCart(product) {
 		console.log("added another one to the cart");
 	}
 	updateCart();
-	console.log(cart);
+	console.log(cart)
 }
 
 // Function to remove a product from the cart
