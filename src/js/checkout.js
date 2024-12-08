@@ -25,7 +25,7 @@ const blackPants = {
 let cart = [whiteShirt, blackPants];
 
 //This function displays the current CART (not the buyable items) on the checkout page
-function renderCart() {
+export function renderCart() {
 	checkoutItems.innerHTML = ``;
 	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the amount)
 	for (i = 0; i < cart.length; i++) {
@@ -48,19 +48,17 @@ function renderCart() {
 //This calculates and renders out the total price of all items in the cart
 function calculateTotalPrice() {
 	let checkoutSum = 0;
-	let shippingPrice = document.querySelector("#checkout-shipping").value
-	Number(shippingPrice)
+	let shippingPrice = document.querySelector("#checkout-shipping").value;
+	Number(shippingPrice);
 	totalEL.textContent = "Price: ";
 	shippingEl.textContent = `Shipping: ${
 		document.querySelector("#checkout-shipping").value
 	}kr`;
 	for (i = 0; i < cart.length; i++) {
-		checkoutSum += cart[i].price * cart[i].amount
+		checkoutSum += cart[i].price * cart[i].amount;
 	}
-	let totalPrice = checkoutSum + Number(shippingPrice)
-	totalEL.textContent = `Total: ${
-		totalPrice.toFixed(2)
-	}kr`;
+	let totalPrice = checkoutSum + Number(shippingPrice);
+	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
 	if (cart.length === 0) {
 		orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
 		document.querySelector("#checkout-form-section").innerHTML = "";
@@ -98,4 +96,10 @@ function add(index) {
 	renderCart();
 }
 
+function showCreditCard() {
+	document.querySelector("#checkout-credit-card").style.display = "block"
+}
+showCreditCard
 renderCart();
+
+console.log("hello")
