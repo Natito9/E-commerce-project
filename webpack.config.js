@@ -16,7 +16,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    port: 9001,
+    port: 8080,
     watchFiles: ["./src/template.html"],
       historyApiFallback: {
           index: '/template.html', // Ensures all requests serve "template.html"
