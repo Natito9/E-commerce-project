@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
+    <!-- <link rel="stylesheet" href="styles/checkout-style.css"> -->
+    <script src="js/checkout.js" defer></script>
     <link rel="stylesheet" href="styles/checkout-style.css">
-    <script src="checkout.js" defer></script>
 </head>
 <body>
     <section id="checkout-form-section">
@@ -52,25 +53,38 @@
 
                 <h2>Payment</h2>
                 <p>All transactions are secure and encrypted</p>
-                <label for="checkout-card-number">Card number:</label>
-                <input type="text" id="checkout-card-number" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" pattern="[0-9\s]{12,19}" autocomplete="off" required>
-                
-                <label for="checkout-expiration-date">Expiration date:</label>
-                <input type="text" id="checkout-expiration-date" placeholder="MMYY" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="off" required>
-                
-                <label for="checkout-security-code">Security code:</label>
-                <input type="text" id="checkout-security-code" placeholder="CVV" inputmode="numeric" pattern="[0-9\s]{3}" autocomplete="off" required>
-                
-                <label for="checkout-card-name">Name on card:</label>
-                <input type="text" id="checkout-card-name" autocomplete="off" required>
+                <label for="checkout-payment"></label>
+                <select name="" id="checkout-payment">
+                    <option value="" onclick="togglePayment(true)">PayPal</option>
+                    <option value="" onclick="togglePayment(false)">Credit card</option>
+                </select>
 
+                <div id="checkout-paypal" style="display: none;">
+                    <h2>Paypal</h2>
+                    <label for="checkout-paypal-email">Linked email</label>
+                    <input type="email" id="checkout-paypal-email">
+                </div>
+
+                <div id="checkout-credit-card" style="display: none;">
+                    <h2>Credit card</h2>
+                    <label for="checkout-card-number">Card number:</label>
+                    <input type="text" id="checkout-card-number" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" pattern="[0-9\s]{12,19}" autocomplete="off" required>
+                    
+                    <label for="checkout-expiration-date">Expiration date:</label>
+                    <input type="text" id="checkout-expiration-date" placeholder="MMYY" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="off" required>
+                    
+                    <label for="checkout-security-code">Security code:</label>
+                    <input type="text" id="checkout-security-code" placeholder="CVV" inputmode="numeric" pattern="[0-9\s]{3}" autocomplete="off" required>
+                    
+                    <label for="checkout-card-name">Name on card:</label>
+                    <input type="text" id="checkout-card-name" autocomplete="off" required>
+                </div>
 
                 <section id="checkout-order-summary">
                     <h1 id="checkout-cart">Cart</h1>
                     <div id="checkout-items"></div>
                     <h2 id="checkout-shipping-cost">Shipping: </h2>
                     <h2 id="checkout-total-price">Total: </h2>
-                    <button id="checkout-pay-button">Pay now</button>
                 </section>
 
 
