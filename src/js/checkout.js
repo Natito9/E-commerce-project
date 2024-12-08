@@ -25,7 +25,7 @@ const blackPants = {
 let cart = [whiteShirt, blackPants];
 
 //This function displays the current CART (not the buyable items) on the checkout page
-export function renderCart() {
+function renderCart() {
 	checkoutItems.innerHTML = ``;
 	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the amount)
 	for (i = 0; i < cart.length; i++) {
@@ -96,10 +96,16 @@ function add(index) {
 	renderCart();
 }
 
-function showCreditCard() {
-	document.querySelector("#checkout-credit-card").style.display = "block"
+function togglePayment(decider) {
+	if (decider) {
+		document.querySelector("#checkout-credit-card").style.display = "none"
+		document.querySelector("#checkout-paypal").style.display = "block"
+	} else {
+		document.querySelector("#checkout-credit-card").style.display = "block"
+		document.querySelector("#checkout-paypal").style.display = "none"
+	}
 }
-showCreditCard
+
 renderCart();
 
 console.log("hello")
