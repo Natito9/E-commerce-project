@@ -8,18 +8,20 @@ export function loadCart() {
 	if (savedCart) {
 		cart = JSON.parse(savedCart); // Parse and load cart from localStorage
 		updateCart(); // Update the display
+		console.log(cart)
 	}
 }
 
 // Function to add a product to the cart
 export async function addToCart(product) {
-	if (product.Amount === 0) {
+	if (!cart.some(e => e.id === product.id)) {
 		cart.push(product);
-		product.Amount += 1;
+		product.Amount += 1; 
 		console.log("added it to the cart");
+		console.log("that thing is not there, but it is now");
 	} else {
-		product.Amount += 1;
-		console.log("added another one to the cart");
+		cart.find(e => e.id === product.id).Amount += 1
+		console.log("that thing is there, and now there are one more of it")
 	}
 	updateCart();
 	console.log(cart)
