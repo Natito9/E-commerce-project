@@ -1,6 +1,6 @@
 let cart = [];
-
 export { cart };
+
 // Function to load cart from local storage
 export function loadCart() {
 	// Check if there is a cart in localStorage
@@ -22,10 +22,10 @@ export async function addToCart(product) {
         cart.find(e => e.id === product.id).Amount += 1
         // console.log("that thing is there, and now there are one more of it")
     }
-    // updateCart();
-    // console.log(cart)
+    updateCart();
+    console.log(cart)
 }
-// Function to remove a product from the cart
+//Function to remove a product from the cart
 export function removeFromCart(productId) {
 	cart = cart.filter((item) => item.id !== productId);
 	updateCart();
@@ -50,7 +50,19 @@ export function updateCart() {
         </div>
       </span>
     `;
+		// Add product details
+		listItem.innerHTML = `
+      <span class="remove-spn">${item.title}
+        <div class="remove-dropdown">
+            <button onclick="removeFromCart(${item.id})">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>         
+        </div>
+      </span>
+    `;
 
+		cartItemsList.appendChild(listItem);
+	});
 		cartItemsList.appendChild(listItem);
 	});
 
@@ -68,4 +80,5 @@ export function updateCart() {
 
 
 
+window.onload = loadCart;
 window.onload = loadCart;

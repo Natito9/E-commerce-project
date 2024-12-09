@@ -3,6 +3,7 @@ import './styles/style.css';
 import './styles/prod-listing.css'
 import './styles/footer.css'
 import './styles/header.css'
+import './styles/checkout-style.css'
 
 import { registerRoute } from "./js/router";
 

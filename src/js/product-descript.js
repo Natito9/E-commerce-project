@@ -2,7 +2,7 @@
 // IMPORTED FUNCTIONS
 import { fetchSingleProduct } from "./api";
 import { addToCart } from "./addToCart";
-import {addItemToCart} from "./shop-cart";
+import { addItemToCart } from "./shop-cart";
 
 // IMPORT STYLES:
 import "../styles/product-descript.css"
@@ -20,6 +20,7 @@ export async function openProductModal(productId) {
   // productPopUp.innerHTML = createProductCard(product)
   const productImage = productPopUp.querySelector("img")
   productImage.src = product.image
+  productImage.alt = product.title
 
   const productPrice = productPopUp.querySelector(".price")
   productPrice.textContent = `Price: $${product.price}`
