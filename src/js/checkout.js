@@ -2,7 +2,6 @@ import "../styles/checkout-style.css"
 import { cart } from "./addToCart";
 
 //this is necessary for the checkout page DOM manipulation
-const cartEl = document.querySelector("#checkout-cart");
 
 
 //This is the array which represents the shopping cart
@@ -12,6 +11,12 @@ const cartEl = document.querySelector("#checkout-cart");
 export async function renderCart() {
 	const checkoutItems = document.querySelector("#checkout-items");
 	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the Amount)
+	
+	//add eventlisteners
+	document.querySelector("#checkout-shipping").addEventListener("click", function (event) {
+		
+	})
+
 	for (let i = 0; i < cart.length; i++) {
 		const item = document.createElement("div");
 		item.classList.add("product")
@@ -20,9 +25,7 @@ export async function renderCart() {
 		<p>${cart[i].price}</p>
         <h3>${cart[i].title}</h3>
 		<div class="amounter">
-        <button onclick="remove(${i})" class="minus-btn">-</button>
         <h3 class="amount">${cart[i].Amount}</h3>
-        <button onclick="add(${i})" class="plus-btn">+</button>
         </div>
 		<h3>${Math.round(cart[i].price * cart[i].Amount * 100) / 100}kr</h3>
         `;
@@ -60,6 +63,7 @@ export async function renderTotalPrice(totalPrice) {
 
 //This calculates and renders the total Amount of items in the cart
 export async function calculateItemAmount() {
+	const cartEl = document.querySelector("#checkout-cart");
 	let cartAmount = 0;
 	for (let i = 0; i < cart.length; i++) {
 		cartAmount += cart[i].Amount;
@@ -93,6 +97,7 @@ export async function togglePayment(decider) {
 		document.querySelector("#checkout-credit-card").style.display = "grid"
 		document.querySelector("#checkout-paypal").style.display = "none"
 	}
+	console.log("true")
 }
 
 window.onload(renderCart)
