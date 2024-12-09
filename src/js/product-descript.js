@@ -18,6 +18,7 @@ export async function openProductModal(productId) {
   // productPopUp.innerHTML = createProductCard(product)
   const productImage = productPopUp.querySelector("img")
   productImage.src = product.image
+  productImage.alt = product.title
 
   const productPrice = productPopUp.querySelector(".price")
   productPrice.textContent = `Price: $${product.price}`

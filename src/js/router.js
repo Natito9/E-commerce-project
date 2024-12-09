@@ -1,7 +1,7 @@
 const content = document.getElementById("content");
 import { loadProducts } from "./prod-listing.js";
-import { loadCart } from "./addToCart.js";
-import { renderCart } from "./checkout.js";
+import { loadCart, removeFromCart, updateCart } from "./addToCart.js";
+import { calculateItemAmount, calculateTotalPrice, renderCart, renderTotalPrice, togglePayment } from "./checkout.js";
 
 
 const routerConfig = {
@@ -10,12 +10,17 @@ const routerConfig = {
 		loadFunction: () => {
             loadProducts(), // the loader function related to the path
             loadCart()
+			updateCart
+			removeFromCart
         }
 	},
 	"/checkout": {
 		path: "/pages/checkout.html", //the html file related to the path
 		loadFunction: () => {
             renderCart()
+            calculateTotalPrice
+            renderTotalPrice
+            calculateItemAmount
             console.log("hello")
         }
         , // the loader function related to the path

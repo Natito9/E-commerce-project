@@ -1,3 +1,5 @@
+import "../styles/checkout-style.css"
+
 //this is necessary for the checkout page DOM manipulation
 const orderSummary = document.querySelector("#checkout-order-summary");
 const shippingEl = document.querySelector("#checkout-shipping-cost");
@@ -23,6 +25,8 @@ const blackPants = {
 
 //This is the array which represents the shopping cart
 let cart = [whiteShirt, blackPants];
+export {cart}
+
 
 //This function displays the current CART (not the buyable items) on the checkout page
 export async function renderCart() {
@@ -46,26 +50,29 @@ export async function renderCart() {
 	}
 	calculateTotalPrice();
 	calculateItemAmount();
+	console.log("HERE I AM")
 }
 
 //This calculates and renders out the total price of all items in the cart
 export async function calculateTotalPrice() {
 	let checkoutSum = 0;
 	let shippingPrice = document.querySelector("#checkout-shipping").value;
-	Number(shippingPrice);
-	totalEL.textContent = "Price: ";
-	shippingEl.textContent = `Shipping: ${
-		document.querySelector("#checkout-shipping").value
-	}kr`;
 	for (i = 0; i < cart.length; i++) {
 		checkoutSum += cart[i].price * cart[i].Amount;
 	}
 	let totalPrice = checkoutSum + Number(shippingPrice);
-	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
+	renderTotalPrice(totalPrice)
+}
+
+export async function renderTotalPrice(totalPrice) {
+	shippingEl.textContent = `Shipping: ${
+		document.querySelector("#checkout-shipping").value
+	}kr`;
 	if (cart.length === 0) {
 		orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
 		document.querySelector("#checkout-form-section").innerHTML = "";
 	}
+	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
 }
 
 //This calculates and renders the total Amount of items in the cart
@@ -79,21 +86,21 @@ export async function calculateItemAmount() {
 
 //This decreases the "Amount"-value by to the responding item from the cart OR removes the item from the array alltogether if the "Amount"-value hits 0
 //This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
-function remove(index) {
+/* function remove(index) {
 	if (cart[index].Amount === 1) {
 		cart.splice(index, 1);
 	} else {
 		cart[index].Amount -= 1;
 	}
 	renderCart();
-}
+} */
 
 //This increases the "Amount"-value by one to the responding item
 //This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
-function add(index) {
+/* function add(index) {
 	cart[index].Amount += 1;
 	renderCart();
-}
+} */
 
 export async function togglePayment(decider) {
 	if (decider) {
@@ -105,6 +112,12 @@ export async function togglePayment(decider) {
 	}
 }
 
-//renderCart();
+renderCart();
 
-console.log("checkout-country")
+export async function myFunc() {
+	renderCart()
+	calculateItemAmount()
+	calculateTotalPrice()
+	renderTotalPrice()
+	togglePayment()
+}
