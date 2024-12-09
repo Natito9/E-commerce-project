@@ -17,10 +17,7 @@ const routerConfig = {
 	"/checkout": {
 		path: "/pages/checkout.html", //the html file related to the path
 		loadFunction: () => {
-            renderCart()
-            calculateTotalPrice
-            renderTotalPrice
-            calculateItemAmount
+
             console.log("hello")
         }
         , // the loader function related to the path
