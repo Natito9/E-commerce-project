@@ -1,0 +1,65 @@
+:root {
+    /* background */
+    --main-bg-color:#ffffff;
+    --secondary-bg-color: #E7EEEA;
+    /* text color */
+    --main-text-color: #2e302f;
+    --secondary-text-color: #575757;
+    /* buttons */
+    --secondary-button-text-color: #ffffff;
+    --button-secondary-color: #647b6e;
+}
+
+
+
+body {
+
+    
+}
+
+#product-descript-container {
+    position: relative;
+    top: 35%; left: 35%;
+    min-height: 12.5rem;
+    width: 25rem;
+    background: #ffffff; 
+    align-items: center;
+    justify-content: center;
+}
+
+.product-descript-card {
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff; 
+    position: relative;
+    margin: 2rem;
+    font-size: 0.8rem;
+}
+
+dialog::backdrop {
+    opacity: 0.95;
+    backdrop-filter: blur(5px);
+}
+
+.product-image {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-descript-card .description {
+    margin: 1rem;
+}
+
+.product-descript-card .add-to-cart .close-btn {
+    
+
+}
+
+
+@media (min-width: 425px) {
+    
+
+}
