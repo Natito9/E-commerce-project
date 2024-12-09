@@ -75,3 +75,5 @@ export function renderProductCard(product) {
     `;
   container.innerHTML += card;
 }
+
+/* module.exports = fetchProductsCategories,setupCategoryFilter; */
