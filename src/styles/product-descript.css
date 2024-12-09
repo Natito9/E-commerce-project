@@ -38,6 +38,11 @@ body {
     font-size: 0.8rem;
 }
 
+dialog::backdrop {
+    opacity: 0.95;
+    backdrop-filter: blur(5px);
+}
+
 .product-image {
     display: inline-block;
     align-items: center;
