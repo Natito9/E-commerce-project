@@ -15,13 +15,3 @@ import { openCart } from "./js/shop-cart.js";
 
 registerRoute();
 
-async function test() {
-  const openCartButton = document.getElementById("sc-open-button");
-
-  openCartButton.addEventListener("click", () => {
-    openCart();
-    console.log("open cart");
-  });
-}
-
-test();

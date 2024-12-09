@@ -1,10 +1,17 @@
 const content = document.getElementById('content')
 import { loadProducts } from './prod-listing.js';
+import { loadShoppingCart, changePath } from './shop-cart.js'
+import { loadCart } from './addToCart.js';
+
 
 const routerConfig = {
     '/': {
         path: '/pages/home.html', //the html file related to the path
-        loadFunction: loadProducts // the loader function related to the path
+        loadFunction: () => {
+            loadProducts(); // Call the loadProducts function
+            loadShoppingCart(); // call the test function for the popup
+            loadCart();
+        }
     },
     '/checkout': {
         path: '/pages/checkout.html',//the html file related to the path
@@ -15,7 +22,6 @@ const routerConfig = {
 
 const renderPage = async (path,loader)=> {
     const content = document.querySelector("#content");
-    console.log(content)
     try {
         // copy the html codes from the path
         const response = await fetch(path)

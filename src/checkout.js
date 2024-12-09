@@ -68,7 +68,7 @@ function calculateTotalPrice() {
 }
 
 //This calculates and renders the total amount of items in the cart
-function calculateItemAmount() {
+export function calculateItemAmount() {
 	let cartAmount = 0;
 	for (i = 0; i < cart.length; i++) {
 		cartAmount += cart[i].amount;
@@ -98,4 +98,10 @@ function add(index) {
 	renderCart();
 }
 
-renderCart();
+// renderCart();
+
+//natalias change not so important right now
+export function getCartItemIndex(index) {
+    return index;
+}
+
