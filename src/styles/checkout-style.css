@@ -87,7 +87,5 @@ select{
 }
 
 @media (min-width: 425px){
-    body{
-        background-color: darkcyan;
-    }
+
 }
