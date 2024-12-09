@@ -1,7 +1,7 @@
+import "../styles/prod-listing.css";
 import { fetchProducts } from "./api.js";
 import { openProductModal } from "./product-descript.js";
 import { addToCart } from "./addToCart.js";
-import "../styles/prod-listing.css";
 import { fetchProductsCategories,createCategoryDropdown,setupCategoryFilter } from './filters.js'
 
 

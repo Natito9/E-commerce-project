@@ -2,7 +2,7 @@
 
 //This file is not linked with prod-listing.js file.
 
-const fetchProducts = require('./api').fetchProducts;
+const fetchProducts = require('../js/api').fetchProducts;
 
 async function fetchProductsCategories() {
   const products = await fetchProducts();

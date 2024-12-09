@@ -8,7 +8,7 @@
     ],
   }));
   
-  const { fetchProductsCategories} = require('../js/filters-for-test');
+  const { fetchProductsCategories} = require('./filters-for-test');
   
   describe('fetchProductsCategories', () => {
     it('should return unique categories', async () => {
