@@ -2,6 +2,7 @@
 // IMPORTED FUNCTIONS
 import { fetchSingleProduct } from "./api";
 import { addToCart } from "./addToCart";
+import { addItemToCart } from "./shop-cart";
 
 // IMPORT STYLES:
 import "../styles/product-descript.css"
@@ -29,7 +30,7 @@ export async function openProductModal(productId) {
   // add event listener for add to cart button (copy from Raana)
   productPopUp.querySelector("button.add-to-cart").addEventListener("click", (e) => {
     e.preventDefault()
-    addToCart(product)
+    addItemToCart(product)
   })
 
   // add event listener for close button

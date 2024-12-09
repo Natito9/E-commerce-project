@@ -2,6 +2,7 @@ const content = document.getElementById('content')
 import { loadProducts } from './prod-listing.js';
 import { loadShoppingCart, changePath } from './shop-cart.js'
 import { loadCart } from './addToCart.js';
+import { renderCart } from './checkout.js';
 
 
 
@@ -16,7 +17,9 @@ const routerConfig = {
     },
     '/checkout': {
         path: '/pages/checkout.html',//the html file related to the path
-        loadFunction: null // the loader function related to the path
+        loadFunction: () => {
+            renderCart()
+        } // the loader function related to the path
     }
 }
 
@@ -27,7 +30,7 @@ const renderPage = async (path,loader)=> {
         // copy the html codes from the path
         const response = await fetch(path)
         const codeOfThePathFile = await response.text()
-        console.log(response)
+        //console.log(response)
        
         content.innerHTML = codeOfThePathFile
         

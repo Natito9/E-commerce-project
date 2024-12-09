@@ -11,7 +11,6 @@ const cartEl = document.querySelector("#checkout-cart");
 //This function displays the current CART
 export async function renderCart() {
 	const checkoutItems = document.querySelector("#checkout-items");
-	checkoutItems.innerHTML = ``;
 	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the Amount)
 	for (let i = 0; i < cart.length; i++) {
 		const item = document.createElement("div");
@@ -31,7 +30,6 @@ export async function renderCart() {
 	}
 	calculateTotalPrice();
 	calculateItemAmount();
-	console.log("HERE I AM")
 }
 
 //This calculates and renders out the total price of all items in the cart
@@ -53,8 +51,9 @@ export async function renderTotalPrice(totalPrice) {
 		document.querySelector("#checkout-shipping").value
 	}kr`;
 	if (cart.length === 0) {
-		orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
-		document.querySelector("#checkout-form-section").innerHTML = "";
+		console.log("You have nothing in your cart bozo")
+		/* orderSummary.innerHTML = `<h1> You don't have any items in your cart:( </h1>`;
+		document.querySelector("#checkout-form-section").innerHTML = ""; */
 	}
 	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
 }
@@ -95,3 +94,5 @@ export async function togglePayment(decider) {
 		document.querySelector("#checkout-paypal").style.display = "none"
 	}
 }
+
+window.onload(renderCart)

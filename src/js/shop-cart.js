@@ -18,7 +18,6 @@ function openCart(){
 }; 
 
 
-
 function displayCart() {
     // Create the overlay (background) 
     const scOverlay = document.createElement("div");
@@ -252,5 +251,5 @@ function closeCart() {
   
 
 function changePath() {
-    location.pathname = '/checkout'; 
+    location.pathname = '/checkout';
 }    
