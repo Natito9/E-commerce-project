@@ -4,6 +4,7 @@ import { cart } from "./addToCart";
 //this is necessary for the checkout page DOM manipulation
 
 
+
 //This is the array which represents the shopping cart
 
 
@@ -65,9 +66,10 @@ export async function renderTotalPrice(totalPrice) {
 export async function calculateItemAmount() {
 	const cartEl = document.querySelector("#checkout-cart");
 	let cartAmount = 0;
+	const cartEl = document.querySelector("#checkout-cart");
 	for (let i = 0; i < cart.length; i++) {
 		cartAmount += cart[i].Amount;
-		cartEl.innerHTML = `<h1> Cart – items ${cartAmount} </h1>`;
+		cartEl.innerHTML = `<h1> Cart - items ${cartAmount} </h1>`;
 	}
 }
 

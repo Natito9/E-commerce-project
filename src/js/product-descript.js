@@ -15,6 +15,7 @@ export async function openProductModal(productId) {
 
   // fetch product data from api
   const product = await fetchSingleProduct(productId)
+  console.log(product);
   // replace inner html
   // productPopUp.innerHTML = createProductCard(product)
   const productImage = productPopUp.querySelector("img")
@@ -30,6 +31,7 @@ export async function openProductModal(productId) {
   // add event listener for add to cart button (copy from Raana)
   productPopUp.querySelector("button.add-to-cart").addEventListener("click", (e) => {
     e.preventDefault()
+    // addToCart(product)
     addItemToCart(product)
   })
 
