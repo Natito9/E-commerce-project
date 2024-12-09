@@ -17,7 +17,6 @@ export async function addToCart(product) {
 	if (!cart.some(e => e.id === product.id)) {
 		cart.push(product);
 		product.Amount += 1; 
-		console.log("added it to the cart");
 		console.log("that thing is not there, but it is now");
 	} else {
 		cart.find(e => e.id === product.id).Amount += 1
