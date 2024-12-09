@@ -4,6 +4,7 @@ import { loadShoppingCart, changePath } from './shop-cart.js'
 import { loadCart } from './addToCart.js';
 
 
+
 const routerConfig = {
     '/': {
         path: '/pages/home.html', //the html file related to the path
