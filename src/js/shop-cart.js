@@ -1,9 +1,10 @@
-import {cart, addToCart} from "./addToCart"; 
+import {cart} from "./addToCart"; 
 import {fetchProducts} from "./api.js";
 
 
 export async function loadShoppingCart() {
-    const openCartButton = document.getElementById("sc-open-button");
+    // const openCartButton = document.getElementById("sc-open-button");
+    const openCartButton = document.querySelector(".cart-icon");
   
     openCartButton.addEventListener("click", () => {
       openCart();
@@ -19,7 +20,7 @@ function openCart(){
 
 
 
-function displayCart() {
+export function displayCart() {
     // Create the overlay (background) 
     const scOverlay = document.createElement("div");
     scOverlay.classList.add("cart-overlay");
@@ -221,6 +222,7 @@ export function addItemToCart(product) {
     displayProducts();
     updateSubtotal();
     calculateItemAmount();
+    saveCart();// save the cart
 }
 
 
@@ -233,10 +235,10 @@ function removeItemFromCart(product) {
             cart.splice(cart.indexOf(cartItem), 1); //remove if 1
         }
 
-     
         displayProducts();
         updateSubtotal();
         calculateItemAmount();
+        saveCart(); // Call to save the cart
     } else {
         console.log(`${product.title} not found in cart`);
     }
@@ -254,3 +256,19 @@ function closeCart() {
 function changePath() {
     location.pathname = '/checkout'; 
 }    
+
+
+export function loadCart() {
+	// Check if there is a cart in localStorage
+	const savedCart = localStorage.getItem("cart");
+	if (savedCart) {
+		cart = JSON.parse(savedCart); // Parse and load cart from localStorage
+		console.log("Current cart contents:", cart); 
+		saveCart(); // Save the cart after loading (if needed)
+	}
+}
+
+export function saveCart() {
+	localStorage.setItem("cart", JSON.stringify(cart)); // Save the cart to localStorage
+	console.log("Cart saved to local storage:", cart);
+}
