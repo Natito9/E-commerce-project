@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c152fb6-a204-4cb8-971d-506b9e04bfac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/styles/footer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/product-descript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/product-descript.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/prod-listing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/prod-listing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/prod-listing.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/prod-listing.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -20,20 +26,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+            <state relative-caret-position="212">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles/header.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+            <state relative-caret-position="150">
+              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/checkout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4">
+              <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -97,9 +112,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="371" />
+    <option name="x" value="89" />
     <option name="y" value="35" />
-    <option name="width" value="898" />
+    <option name="width" value="1351" />
     <option name="height" value="790" />
   </component>
   <component name="ProjectView">
@@ -186,7 +201,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733394866564</updated>
-      <workItem from="1733394868111" duration="20286000" />
+      <workItem from="1733394868111" duration="20803000" />
     </task>
     <task id="LOCAL-00001" summary="add sample pages">
       <created>1733400071027</created>
@@ -241,19 +256,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20286000" />
+    <option name="totallyTimeSpent" value="20803000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="371" y="35" width="898" height="790" extended-state="0" />
+    <frame x="89" y="35" width="1351" height="790" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.28848347" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.19022556" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Messages" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32658958" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32658958" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
@@ -293,13 +308,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/router.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/checkout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -356,17 +364,24 @@
     <entry file="file://$PROJECT_DIR$/src/checkout.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/template.html">
+    <entry file="file://$PROJECT_DIR$/src/pages/checkout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+        <state relative-caret-position="4">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        <state relative-caret-position="150">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>

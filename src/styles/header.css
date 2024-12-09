@@ -59,8 +59,8 @@
 
 
     .header {
-        flex-direction: row; /* لوگو و آیکون کنار هم قرار بگیرند */
-        justify-content: space-between; /* توزیع فضای مناسب */
+        flex-direction: row;
+        justify-content: space-between;
         text-align: center;
     }
 
@@ -74,7 +74,7 @@
 
 
     .cart-icon img {
-        display: block; /* اطمینان از نمایش آیکون */
+        display: block;
         width: 25px; /* Adjust size for mobile */
         height: 25px;
         transition: transform 0.3s ease, filter 0.3s ease;
