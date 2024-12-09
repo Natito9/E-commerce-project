@@ -34,7 +34,7 @@ module.exports = {
     new HtmlWebpackPlugin({
         template: './src/pages/checkout.html',
         filename: 'pages/checkout.html',
-    }),
+    })
   ],
   module: {
     rules: [

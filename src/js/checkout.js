@@ -75,8 +75,8 @@ export async function renderTotalPrice(totalPrice) {
 	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
 }
 
-//This calculates and renders the total Amount of items in the cart
-export async function calculateItemAmount() {
+//This calculates and renders the total amount of items in the cart
+export function calculateItemAmount() {
 	let cartAmount = 0;
 	for (i = 0; i < cart.length; i++) {
 		cartAmount += cart[i].Amount;
@@ -100,14 +100,12 @@ export async function calculateItemAmount() {
 /* function add(index) {
 	cart[index].Amount += 1;
 	renderCart();
-} */
-
-export async function togglePayment(decider) {
-	if (decider) {
-		document.querySelector("#checkout-credit-card").style.display = "none"
-		document.querySelector("#checkout-paypal").style.display = "grid"
-	} else {
-		document.querySelector("#checkout-credit-card").style.display = "grid"
-		document.querySelector("#checkout-paypal").style.display = "none"
-	}
 }
+
+// renderCart();
+
+//natalias change not so important right now
+export function getCartItemIndex(index) {
+    return index;
+}
+

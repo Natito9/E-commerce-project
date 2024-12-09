@@ -1,50 +1,55 @@
-const content = document.getElementById("content");
-import { loadProducts } from "./prod-listing.js";
-import { loadCart, removeFromCart, updateCart } from "./addToCart.js";
-import { calculateItemAmount, calculateTotalPrice, renderCart, renderTotalPrice, togglePayment } from "./checkout.js";
+const content = document.getElementById('content')
+import { loadProducts } from './prod-listing.js';
+import { loadShoppingCart, changePath } from './shop-cart.js'
+import { loadCart } from './addToCart.js';
+
 
 
 const routerConfig = {
-	"/": {
-		path: "/pages/home.html", //the html file related to the path
-		loadFunction: () => {
-            loadProducts(), // the loader function related to the path
-            loadCart()
-			updateCart
-			removeFromCart
+    '/': {
+        path: '/pages/home.html', //the html file related to the path
+        loadFunction: () => {
+            loadProducts(); // Call the loadProducts function
+            loadShoppingCart(); // call the test function for the popup
+            loadCart();
         }
-	},
-	"/checkout": {
-		path: "/pages/checkout.html", //the html file related to the path
-		loadFunction: () => {
+    },
+    '/checkout': {
+        path: '/pages/checkout.html',//the html file related to the path
+        loadFunction: null // the loader function related to the path
+    }
+}
 
-            console.log("hello")
+
+const renderPage = async (path,loader)=> {
+    const content = document.querySelector("#content");
+    try {
+        // copy the html codes from the path
+        const response = await fetch(path)
+        const codeOfThePathFile = await response.text()
+        console.log(response)
+       
+        content.innerHTML = codeOfThePathFile
+        
+        // if the route has a loader function, call the loader function
+        if(!!loader){
+            loader()
         }
-        , // the loader function related to the path
-	},
-};
+    } catch (error) {
+        console.info(error.toString())
+        console.log("catching error")
+    }
+     
 
-const renderPage = async (path, loader) => {
-	try {
-		// copy the html codes from the path
-		const response = await fetch(path);
-		const codeOfThePathFile = await response.text();
-
-		content.innerHTML = codeOfThePathFile;
-
-		// if the route has a loader function, call the loader function
-		if (!!loader) {
-			loader();
-		}
-	} catch (e) {
-		console.info(e.toString());
-	}
-};
+}
 
 export function registerRoute() {
-	// we should see what request comes
-	// this line will find what is the path, for example "/checkout"
-	const route = location.pathname;
+    console.log("RegisterRoute func");
+
+    // we should see what request comes
+    // this line will find what is the path, for example "/checkout"
+    const route = location.pathname;
+
 
 	// go and show the path of the route to the user
 	// for example if the route is /checkout, `routerConfig[route]` will find the whole configuration for the '/checkout'
