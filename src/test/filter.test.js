@@ -1,5 +1,5 @@
-// Mock the fetchProducts function before importing the module being tested
-jest.mock('../js/api', () => ({
+  // Mock the fetchProducts function before importing the module being tested
+  jest.mock('../js/api', () => ({
     fetchProducts: async () => [
       { category: 'clothing', title: 'T-Shirt', image: 'https://example.com/t-shirt.jpg', price: 19.99, id: 1 },
       { category: 'accessories', title: 'Watch', image: 'https://example.com/watch.jpg', price: 49.99, id: 2 },
@@ -8,8 +8,7 @@ jest.mock('../js/api', () => ({
     ],
   }));
   
-  // Import the module after setting up the mock
-  import { fetchProductsCategories } from '../js/filters';
+  const { fetchProductsCategories} = require('../js/filters-for-test');
   
   describe('fetchProductsCategories', () => {
     it('should return unique categories', async () => {
