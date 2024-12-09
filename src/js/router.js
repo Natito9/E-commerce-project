@@ -3,6 +3,7 @@ import { loadProducts } from "./prod-listing.js";
 import { loadCart } from "./addToCart.js";
 import { renderCart } from "./checkout.js";
 
+
 const routerConfig = {
 	"/": {
 		path: "/pages/home.html", //the html file related to the path
