@@ -1,38 +1,19 @@
 import "../styles/checkout-style.css"
+import { cart } from "./addToCart";
 
 //this is necessary for the checkout page DOM manipulation
-const orderSummary = document.querySelector("#checkout-order-summary");
-const shippingEl = document.querySelector("#checkout-shipping-cost");
-const totalEL = document.querySelector("#checkout-total-price");
 const cartEl = document.querySelector("#checkout-cart");
-const checkoutItems = document.querySelector("#checkout-items");
-/* const whiteShirt = {
-	title: "White Shirt",
-	price: 149.99,
-	img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api",
-	//If there is not an "Amount" value in the API we need to manually set it to 0 when we've fetched the necessary data from the API
-	//If Amount > 0 the code will add the responding item from the "items" array to the "cart" array
-	Amount: 1,
-};
 
-const blackPants = {
-	title: "Black Pants",
-	price: 399.99,
-	img: "https://tse1.mm.bing.net/th?id=OIP.mTvA62qA5btxjDX6NYlh-QHaJa&pid=Api",
-	//see above
-	Amount: 2,
-};
 
 //This is the array which represents the shopping cart
-let cart = [whiteShirt, blackPants];
-export {cart}
- */
+
 
 //This function displays the current CART
 export async function renderCart() {
+	const checkoutItems = document.querySelector("#checkout-items");
 	checkoutItems.innerHTML = ``;
 	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the Amount)
-	for (i = 0; i < cart.length; i++) {
+	for (let i = 0; i < cart.length; i++) {
 		const item = document.createElement("div");
 		item.classList.add("product")
 		item.innerHTML = `
@@ -57,7 +38,7 @@ export async function renderCart() {
 export async function calculateTotalPrice() {
 	let checkoutSum = 0;
 	let shippingPrice = document.querySelector("#checkout-shipping").value;
-	for (i = 0; i < cart.length; i++) {
+	for (let i = 0; i < cart.length; i++) {
 		checkoutSum += cart[i].price * cart[i].Amount;
 	}
 	let totalPrice = checkoutSum + Number(shippingPrice);
@@ -65,6 +46,9 @@ export async function calculateTotalPrice() {
 }
 
 export async function renderTotalPrice(totalPrice) {
+	const shippingEl = document.querySelector("#checkout-shipping-cost");
+	const orderSummary = document.querySelector("#checkout-order-summary");
+	const totalEL = document.querySelector("#checkout-total-price");
 	shippingEl.textContent = `Shipping: ${
 		document.querySelector("#checkout-shipping").value
 	}kr`;
@@ -75,10 +59,10 @@ export async function renderTotalPrice(totalPrice) {
 	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
 }
 
-//This calculates and renders the total amount of items in the cart
-export function calculateItemAmount() {
+//This calculates and renders the total Amount of items in the cart
+export async function calculateItemAmount() {
 	let cartAmount = 0;
-	for (i = 0; i < cart.length; i++) {
+	for (let i = 0; i < cart.length; i++) {
 		cartAmount += cart[i].Amount;
 		cartEl.innerHTML = `<h1> Cart – items ${cartAmount} </h1>`;
 	}
@@ -100,12 +84,14 @@ export function calculateItemAmount() {
 /* function add(index) {
 	cart[index].Amount += 1;
 	renderCart();
+} */
+
+export async function togglePayment(decider) {
+	if (decider) {
+		document.querySelector("#checkout-credit-card").style.display = "none"
+		document.querySelector("#checkout-paypal").style.display = "grid"
+	} else {
+		document.querySelector("#checkout-credit-card").style.display = "grid"
+		document.querySelector("#checkout-paypal").style.display = "none"
+	}
 }
-
-// renderCart();
-
-//natalias change not so important right now
-export function getCartItemIndex(index) {
-    return index;
-}
-
