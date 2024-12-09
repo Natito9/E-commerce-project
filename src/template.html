@@ -12,7 +12,63 @@
     <link rel="stylesheet" href="styles/prod-listing.css" />
   </head>
   <body>
+    <header class="header">
+      <div class="logo">
+        <h1>4 Ever Store</h1>
+      </div>
+      <nav class="nav">
+        <!--<ul class="nav-links">-->
+          <!--<li>-->
+            <a href="#cart" class="cart-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Icon" />
+            </a>
+          <!--</li>-->
+        <!--</ul>-->
+      </nav>
+    </header>
+
+
     <div id="content"></div>
-    <footer></footer>
+    <!--Footer starts here-->
+    <footer class="footer">
+      <div class="footer-section">
+        <h2>4 Ever Store</h2>
+      </div>
+      <div class="footer-section links">
+        <ul   id="footer-section1">
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Gift Card</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section links" id="footer-section2">
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Store Policy</a></li>
+          <li><a href="#">Payments</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact" id="footer-section3">
+        <p>info@my-domain.com</p>
+        <p>500 Terry Francine Street</p>
+        <p>San Francisco, CA 94158</p>
+        <p>Tel: 123-456-7890</p>
+      </div>
+      <div class="footer-section newsletter"  id="footer-section4">
+        <p>Sign up. Stay stylish</p>
+        <form action="#">
+          <input type="email" placeholder="Email" required>
+          <div class="checkbox-container">
+            <input type="checkbox" id="subscribe" name="subscribe">
+            <label for="subscribe">Yes, subscribe me to your newsletter.</label>
+          </div>
+          <button type="submit">Subscribe Now</button>
+        </form>
+      </div>
+    </footer>
+  <!--Footer ends here-->
   </body>
 </html>
