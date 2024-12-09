@@ -64,15 +64,12 @@
     }
 
     .nav-links {
-        gap: 10px;git
+        gap: 10px;
         display: flex;
         align-items: center;
         height: 10vh;
         justify-content: space-around;
     }
-
-
-
 
     .cart-icon img {
         display: block;
