@@ -1,6 +1,7 @@
 const content = document.getElementById('content')
 import { loadProducts } from './prod-listing.js';
 
+
 const routerConfig = {
     '/': {
         path: '/pages/home.html', //the html file related to the path
