@@ -6,7 +6,7 @@ const shippingEl = document.querySelector("#checkout-shipping-cost");
 const totalEL = document.querySelector("#checkout-total-price");
 const cartEl = document.querySelector("#checkout-cart");
 const checkoutItems = document.querySelector("#checkout-items");
-const whiteShirt = {
+/* const whiteShirt = {
 	title: "White Shirt",
 	price: 149.99,
 	img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api",
@@ -26,9 +26,9 @@ const blackPants = {
 //This is the array which represents the shopping cart
 let cart = [whiteShirt, blackPants];
 export {cart}
+ */
 
-
-//This function displays the current CART (not the buyable items) on the checkout page
+//This function displays the current CART
 export async function renderCart() {
 	checkoutItems.innerHTML = ``;
 	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the Amount)
@@ -110,14 +110,4 @@ export async function togglePayment(decider) {
 		document.querySelector("#checkout-credit-card").style.display = "grid"
 		document.querySelector("#checkout-paypal").style.display = "none"
 	}
-}
-
-renderCart();
-
-export async function myFunc() {
-	renderCart()
-	calculateItemAmount()
-	calculateTotalPrice()
-	renderTotalPrice()
-	togglePayment()
 }
