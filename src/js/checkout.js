@@ -85,8 +85,6 @@ function remove(index) {
 	} else {
 		cart[index].Amount -= 1;
 	}
-	calculateTotalPrice();
-	calculateItemAmount();
 	renderCart();
 }
 
@@ -94,8 +92,6 @@ function remove(index) {
 //This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
 function add(index) {
 	cart[index].Amount += 1;
-	calculateTotalPrice();
-	calculateItemAmount();
 	renderCart();
 }
 

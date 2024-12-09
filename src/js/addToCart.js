@@ -12,7 +12,7 @@ export function loadCart() {
 }
 
 // Function to add a product to the cart
-export function addToCart(product) {
+export async function addToCart(product) {
 	if (product.Amount === 0) {
 		cart.push(product);
 		product.Amount += 1;
@@ -26,7 +26,7 @@ export function addToCart(product) {
 }
 
 // Function to remove a product from the cart
-export function removeFromCart(productId) {
+export async function removeFromCart(productId) {
 	cart = cart.filter((item) => item.id !== productId);
 	updateCart();
 }
