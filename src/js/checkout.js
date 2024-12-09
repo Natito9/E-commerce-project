@@ -8,9 +8,9 @@ const whiteShirt = {
 	title: "White Shirt",
 	price: 149.99,
 	img: "https://tse4.mm.bing.net/th?id=OIP.sPKwzWU7SRDhgGDV_xjE3wAAAA&pid=Api",
-	//If there is not an "amount" value in the API we need to manually set it to 0 when we've fetched the necessary data from the API
-	//If amount > 0 the code will add the responding item from the "items" array to the "cart" array
-	amount: 1,
+	//If there is not an "Amount" value in the API we need to manually set it to 0 when we've fetched the necessary data from the API
+	//If Amount > 0 the code will add the responding item from the "items" array to the "cart" array
+	Amount: 1,
 };
 
 const blackPants = {
@@ -18,26 +18,29 @@ const blackPants = {
 	price: 399.99,
 	img: "https://tse1.mm.bing.net/th?id=OIP.mTvA62qA5btxjDX6NYlh-QHaJa&pid=Api",
 	//see above
-	amount: 2,
+	Amount: 2,
 };
 
 //This is the array which represents the shopping cart
 let cart = [whiteShirt, blackPants];
 
 //This function displays the current CART (not the buyable items) on the checkout page
-function renderCart() {
+export async function renderCart() {
 	checkoutItems.innerHTML = ``;
-	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the amount)
+	//This loops through the shopping cart array and renders out their images, names and total prices (calculated by the price * the Amount)
 	for (i = 0; i < cart.length; i++) {
 		const item = document.createElement("div");
+		item.classList.add("product")
 		item.innerHTML = `
-        <h2>${cart[i].title}</h2>
-        <h2>${Math.round(cart[i].price * cart[i].amount * 100) / 100}kr</h2>
-        <h2>Amount: ${cart[i].amount}</h2>
         <img src="${cart[i].img}" class="checkout-product-img">
-        <button onclick="remove(${i})">-</button>
-        
-        <button onclick="add(${i})">+</button>
+		<p>${cart[i].price}</p>
+        <h3>${cart[i].title}</h3>
+		<div class="amounter">
+        <button onclick="remove(${i})" class="minus-btn">-</button>
+        <h3 class="amount">${cart[i].Amount}</h3>
+        <button onclick="add(${i})" class="plus-btn">+</button>
+        </div>
+		<h3>${Math.round(cart[i].price * cart[i].Amount * 100) / 100}kr</h3>
         `;
 		checkoutItems.appendChild(item);
 	}
@@ -46,7 +49,7 @@ function renderCart() {
 }
 
 //This calculates and renders out the total price of all items in the cart
-function calculateTotalPrice() {
+export async function calculateTotalPrice() {
 	let checkoutSum = 0;
 	let shippingPrice = document.querySelector("#checkout-shipping").value;
 	Number(shippingPrice);
@@ -55,7 +58,7 @@ function calculateTotalPrice() {
 		document.querySelector("#checkout-shipping").value
 	}kr`;
 	for (i = 0; i < cart.length; i++) {
-		checkoutSum += cart[i].price * cart[i].amount;
+		checkoutSum += cart[i].price * cart[i].Amount;
 	}
 	let totalPrice = checkoutSum + Number(shippingPrice);
 	totalEL.textContent = `Total: ${totalPrice.toFixed(2)}kr`;
@@ -65,47 +68,47 @@ function calculateTotalPrice() {
 	}
 }
 
-//This calculates and renders the total amount of items in the cart
-function calculateItemAmount() {
+//This calculates and renders the total Amount of items in the cart
+export async function calculateItemAmount() {
 	let cartAmount = 0;
 	for (i = 0; i < cart.length; i++) {
-		cartAmount += cart[i].amount;
+		cartAmount += cart[i].Amount;
 		cartEl.innerHTML = `<h1> Cart – items ${cartAmount} </h1>`;
 	}
 }
 
-//This decreases the "amount"-value by to the responding item from the cart OR removes the item from the array alltogether if the "amount"-value hits 0
+//This decreases the "Amount"-value by to the responding item from the cart OR removes the item from the array alltogether if the "Amount"-value hits 0
 //This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
 function remove(index) {
-	if (cart[index].amount === 1) {
+	if (cart[index].Amount === 1) {
 		cart.splice(index, 1);
 	} else {
-		cart[index].amount -= 1;
+		cart[index].Amount -= 1;
 	}
 	calculateTotalPrice();
 	calculateItemAmount();
 	renderCart();
 }
 
-//This increases the "amount"-value by one to the responding item
+//This increases the "Amount"-value by one to the responding item
 //This function is called by a button added in the renderCart function; the corresponding button does not exist in the html
 function add(index) {
-	cart[index].amount += 1;
+	cart[index].Amount += 1;
 	calculateTotalPrice();
 	calculateItemAmount();
 	renderCart();
 }
 
-function togglePayment(decider) {
+export async function togglePayment(decider) {
 	if (decider) {
 		document.querySelector("#checkout-credit-card").style.display = "none"
-		document.querySelector("#checkout-paypal").style.display = "block"
+		document.querySelector("#checkout-paypal").style.display = "grid"
 	} else {
-		document.querySelector("#checkout-credit-card").style.display = "block"
+		document.querySelector("#checkout-credit-card").style.display = "grid"
 		document.querySelector("#checkout-paypal").style.display = "none"
 	}
 }
 
-renderCart();
+//renderCart();
 
-console.log("hello")
+console.log("checkout-country")
