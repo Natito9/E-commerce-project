@@ -1,0 +1,80 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 10px;
+}
+
+
+.cart-icon img {
+    width: 30px; /* Adjust size */
+    height: 30px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cart-icon img:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    filter: brightness(1.2); /* Lighten on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+
+    #mobile-screen {
+        height: 90vh; /* Reserve space for the bottom nav */
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        height: 10vh;
+        justify-content: space-around;
+    }
+
+    .cart-icon img {
+        display: block;
+        width: 25px; /* Adjust size for mobile */
+        height: 25px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+}

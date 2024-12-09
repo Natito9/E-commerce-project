@@ -7,7 +7,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+    <header class="header">
+      <div class="logo">
+        <h1>4 Ever Store</h1>
+      </div>
+      <nav class="nav">
+        <!--<ul class="nav-links">-->
+          <!--<li>-->
+            <a href="#cart" class="cart-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Icon" />
+            </a>
+          <!--</li>-->
+        <!--</ul>-->
+      </nav>
+    </header>
+
+
     <div id="content"></div>
-    <footer></footer>
+    <!--Footer starts here-->
+    <footer class="footer">
+      <div class="footer-section">
+        <h2>4 Ever Store</h2>
+      </div>
+      <div class="footer-section links">
+        <ul   id="footer-section1">
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Gift Card</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section links" id="footer-section2">
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Store Policy</a></li>
+          <li><a href="#">Payments</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section newsletter"  id="footer-section4">
+        <p>Sign up. Stay stylish</p>
+        <form action="#">
+          <input type="email" placeholder="Email" required>
+          <div class="checkbox-container">
+            <input type="checkbox" id="subscribe" name="subscribe">
+            <label for="subscribe">Yes, subscribe me to your newsletter.</label>
+          </div>
+          <button type="submit">Subscribe Now</button>
+        </form>
+      </div>
+    </footer>
+  <!--Footer ends here-->
   </body>
 </html>
