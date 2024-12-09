@@ -1,7 +1,6 @@
-// Cart array to hold products
 let cart = [];
 
-
+export { cart };
 // Function to load cart from local storage
 export function loadCart() {
 	// Check if there is a cart in localStorage
@@ -66,7 +65,7 @@ export async function addToCart(product) {
 // 	localStorage.setItem("cart", JSON.stringify(cart));
 // }
 
-export { cart };
 
 
-window.onload = loadCart;
+
+// window.onload = loadCart;
