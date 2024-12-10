@@ -39,7 +39,7 @@ export async function loadProducts() {
 	});
 
 	//Add event listener to the 'add to cart' button
-	//Hello Sixten here I've updated this function so "add to cart"-button doesn't open the pop up, please choose this version if you get any conflicts
+	//Hello Sixten here KEEP THIS VERSION OF THE CODE IF YOU GET ANY CONFLICTS
 	document
 		.getElementById("product-list")
 		.addEventListener("click", function (event) {
@@ -49,12 +49,17 @@ export async function loadProducts() {
 				if (product) {
 					addToCart(product);
 				}
-			} else if (event.target.classList.contains("card")|| event.target.classList.contains("pi") || event.target.classList.contains("product-image") || event.target.classList.contains("price")) {
+			} else if (
+				event.target.classList.contains("card") ||
+				event.target.classList.contains("pi") ||
+				event.target.classList.contains("product-image") ||
+				event.target.classList.contains("price")
+			) {
 				openProductModal(productId);
-        console.log(productId)
+				console.log(productId);
 			} else {
-        console.log("Er")
-      }
+				console.log("Er");
+			}
 		});
 
 	// Hide loading spinner
