@@ -148,6 +148,23 @@ select {
 	color: red;
 }
 
+#checkout-order-summary {
+	max-width:70%;
+	max-height: 50%;
+	margin:auto;
+	height: auto;
+}
+
+.product {
+	font-size: 1rem;
+	gap: 30px;
+}
+
+.checkout-product-img {
+	width: 100px;
+}
+
+
 @media (min-width: 425px) {
 	.checkout-product-img {
         max-width: 130px;
@@ -180,4 +197,19 @@ select {
     .checkout-h2{
         font-size: 2rem;
     }
+	#checkout-order-summary {
+		max-width:70%;
+		max-height: 50%;
+		margin:auto;
+		height: auto;
+	}
+	
+	.product {
+		font-size: 0.7rem;
+		gap: 30px;
+	}
+	
+	.checkout-product-img {
+		width: 100px;
+	}
 }

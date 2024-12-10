@@ -1,3 +1,4 @@
+
 let cart = [];
 export { cart };
 
@@ -24,6 +25,7 @@ export async function addToCart(product) {
     }
     updateCart();
     console.log(cart)
+
 }
 //Function to remove a product from the cart
 export function removeFromCart(productId) {
