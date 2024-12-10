@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Special+Elite&display=swap');
+
+:root {
+    /* background */
+    --main-bg-color:#ffffff;
+    --secondary-bg-color: #E7EEEA;
+    /* text color */
+    --main-text-color: #2e302f;
+    --secondary-text-color: #575757;
+    /* buttons */
+    --secondary-button-text-color: #ffffff;
+    --button-secondary-color: #647b6e;
+    --button-width: 100px;
+    --button-height: 43px;
+}
+
+body{
+    font-family: "Montserrat";
+}
+
+#filter-container{
+    text-align: right;
+}
+
+#filter-container select{
+    background-color: var(--button-secondary-color);
+    color: var(--secondary-button-text-color);
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 768px) {
+    #filter-container {
+        text-align: center;
+    }
+    #filter-container select {
+        margin-right: 0;
+        padding: 5px;
+        font-size: 1rem;
+    }
+}

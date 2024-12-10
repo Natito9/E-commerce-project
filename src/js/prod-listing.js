@@ -1,8 +1,19 @@
+import "../styles/prod-listing.css";
 import { fetchProducts } from "./api.js";
 import { openProductModal } from "./product-descript.js";
 import { addToCart } from "./addToCart.js";
-import { removeFromCart } from "./addToCart.js";
+import {
+  fetchProductsCategories,
+  createCategoryDropdown,
+  setupCategoryFilter,
+} from "./filters.js";
 
+export async function loadHomeScreen(params) {
+  loadProducts();
+  fetchProductsCategories();
+  createCategoryDropdown();
+  setupCategoryFilter();
+}
 
 export async function loadProducts() {
   // Show loading spinner
@@ -44,6 +55,5 @@ export async function loadProducts() {
 
   // Hide loading spinner
   document.getElementById("loading-spinner").style.display = "none";
-
 
 }
