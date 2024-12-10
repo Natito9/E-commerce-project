@@ -106,3 +106,4 @@ export function getCartItemIndex(index) {
     return index;
 }
 
+
