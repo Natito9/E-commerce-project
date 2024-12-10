@@ -49,6 +49,7 @@ export async function loadProducts() {
           addToCart(product);
         }
       } else {
+        console.log("hello log")
         openProductModal(productId)
       }
     });
