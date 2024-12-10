@@ -181,7 +181,7 @@ function createAmountButton(product) {
 
     // remove button
     const removeButton = document.createElement("button");
-    removeButton.textContent = "-";
+    removeButton.textContent = "—";
     removeButton.id = "remove-button";
     removeButton.addEventListener("click", () => {
         removeItemFromCart(product);

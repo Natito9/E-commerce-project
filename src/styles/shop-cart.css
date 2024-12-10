@@ -29,6 +29,14 @@
     padding: 20px 0px;
 }
 
+.sc-number-items-container {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 20px;
+    font-size: 1.7rem;
+}
+
 .sc-close-button-container {
     display: flex;
     justify-content: flex-end;
@@ -94,13 +102,13 @@
 }
  
 #add-button {
-    background-color: var(--main-bg-color);
+    background-color: transparent;;
     border: none;
 
 }
 
 #remove-button{
-    background-color: var(--main-bg-color);
+    background-color: transparent;;
     border: none;
 
 }
@@ -134,84 +142,108 @@
 
 @media (max-width: 425px) {
     .shopping-cart-section {
-        min-width: 90%; 
-        height: 70%;
-        min-height: 50%;
-        /* padding: 20px; */
-        /* background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center; */
+        padding: 20px;
     }
 
+    .sc-header-container {
+        padding:10px 0px;
+    }
     .sc-number-items-container {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
         gap: 20px;
-        font-size: 1.6rem;
+        font-size: 1rem;
     }
 
     .sc-close-button {
-        width: 40px; 
-        height: 40px; 
+        width: 30px; 
+        height: 30px; 
       
     }
 
-   
-
-   
-
-    .sc-subtotal-container {
+    #cart-product-list {
+        overflow: scroll;
+        text-align: left;
+        padding: 10px;
+        height: fit-content;
+        max-height: 300px;
+    }
+    
+    
+    .product-cart {
+        font-size: 0.9rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap:0px;
+        padding: 20px 0px 0px 0px;
+    }
+    
+    .product-title-cart {
+        grid-column: 1;
+        grid-row: 1/ span 2;
+        min-width: 80px;
+        max-width: 140px;
+        /* height: fit-content; */
+        
+    }
+    
+    .price-cart {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0px 0px 0px 20px;
+        font-size: 1rem;
+    }
+    
+    .button-container{
+        grid-column: 2;
+        grid-row: 2;
+        max-height: 30px;
+        max-width:90px ;
+        gap:10px;
+        font-size: 0.9rem;
+        justify-self: end;
+        
+    }
+     
+    #add-button {
+        background-color: transparent;;
+        border: none;
+        font-size: 1.3rem;
+        padding-right: 5px;
+    }
+    
+    #remove-button{
+        background-color: transparent;;
+        border: none;
+        font-size: 0.8rem;
+    
+    }
+    
+    .sc-subtotal-checkout-container {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        padding-bottom: 20px;
+        
+    }
+    .sc-subtotal-container {
+        font-size: 1rem;
+    
+    }
+    
+    .sc-go-to-checkout-button{
+        height:50px;
     }
 
-    .sc-subtotal-tax-text {
-        align-self: center;
+    .sc-subtotal-tax-text{
+        font-size: 0.7rem;
     }
 }
 
 /* Tablet and Smaller Desktop (600px and up) */
 @media (min-width: 600px) {
-    .shopping-cart-section {
-        min-width: 300px;
-        padding: 20px;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
-    }
-
-    .sc-header-container {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: space-between;
-    }
-
-    #cart-product-list {
-        height: 300px; /* Can be adjusted */
-    }
+ 
 }
 
 /* Large Screens (1024px to 1440px) */
 @media (min-width: 1024px) and (max-width: 1440px) {
-    .shopping-cart-section {
-        min-width: 600px;
-        padding: 30px;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
-    }
 
-    .sc-header-container {
-        justify-content: space-around;
-    }
-
-    #cart-product-list {
-        height: 300px;
-    }
 }
