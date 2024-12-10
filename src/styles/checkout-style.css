@@ -50,7 +50,6 @@ select{
 
 .product{
     display: grid;
-    border: solid red 1px;
     flex-flow: column wrap;
     align-items: center;
 }
