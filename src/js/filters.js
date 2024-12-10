@@ -21,11 +21,19 @@ export async function createCategoryDropdown() {
   allOption.textContent = "All Categories";
   dropdown.appendChild(allOption);
 
+  //Change the names of categories for display
+  const categoryNameMap ={
+    "men's clothing" :"Men",
+    "women's clothing" :"Women",
+    jewelery:"Jeweleries",
+    electronics:"Electronics",
+  }
+
   // Add categories to the dropdown
   categories.forEach((category) => {
     const option = document.createElement("option");
     option.value = category;
-    option.textContent = category;
+    option.textContent = categoryNameMap[category];
     dropdown.appendChild(option);
   });
 
