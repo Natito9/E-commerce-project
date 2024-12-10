@@ -49,6 +49,10 @@
     filter: brightness(1.2); /* Lighten on hover */
 }
 
+.store-name{
+    cursor: pointer;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
