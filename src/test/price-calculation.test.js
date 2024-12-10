@@ -1,27 +1,27 @@
-const { calculateTotal } = require('./price-calculation');
+const { calculateTotalPrice } = require('./price-calculation');
 
-describe('calculateTotal', () => {
+describe('calculateTotalPrice', () => {
   it('should calculate the total price correctly', () => {
     const cart = [
       { price: 19.99, amount: 2 },
       { price: 49.99, amount: 1 },
     ];
-    const shippingCost = 50;
-    const total = calculateTotal(cart, shippingCost);
-    expect(total).toBe(19.99 * 2 + 49.99 + shippingCost);
+    const shippingPrice = 50;
+    const checkoutSum = calculateTotalPrice(cart, shippingPrice);
+    expect(checkoutSum).toBe(19.99 * 2 + 49.99 + shippingPrice);
   });
 
   it('should handle empty cart', () => {
     const cart = [];
-    const shippingCost = 50;
-    const total = calculateTotal(cart, shippingCost);
-    expect(total).toBe(shippingCost);
+    const shippingPrice = 50;
+    const checkoutSum = calculateTotalPrice(cart, shippingPrice);
+    expect(checkoutSum).toBe(shippingPrice);
   });
 
   it('should handle single item in cart', () => {
     const cart = [{ price: 19.99, amount: 1 }];
-    const shippingCost = 50;
-    const total = calculateTotal(cart, shippingCost);
-    expect(total).toBe(19.99 + shippingCost);
+    const shippingPrice = 50;
+    const checkoutSum = calculateTotalPrice(cart, shippingPrice);
+    expect(checkoutSum).toBe(19.99 + shippingPrice);
   });
 });
