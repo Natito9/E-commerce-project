@@ -1,5 +1,4 @@
 import {cart} from "./addToCart"; 
-import {fetchProducts} from "./api.js";
 
 
 export async function loadShoppingCart() {
@@ -81,6 +80,9 @@ export function displayCart() {
     scSubtotalCheckoutContainer.classList.add("sc-subtotal-checkout-container")
     scSection.appendChild(scSubtotalCheckoutContainer);
 
+    const scLineSubtotal = document.createElement("hr");
+    scLineSubtotal.classList.add("sc-header-line");
+    scSubtotalCheckoutContainer.appendChild(scLineSubtotal);
     //subtotal container
     const scSubtotalContainer = document.createElement("div")
     scSubtotalContainer.classList.add("sc-subtotal-container")
@@ -169,8 +171,13 @@ function updateSubtotal() {
 function calculateItemAmount() {
     const totalAmount = cart.reduce((total, item) => total + item.Amount, 0);
     const scNumberItems = document.querySelector("#productsAmount"); 
+    const cartBadge = document.querySelector(".cart-badge"); 
     if (scNumberItems) {
         scNumberItems.textContent = totalAmount > 0 ? `${totalAmount} items` : "empty cart";
+    }
+
+    if (cartBadge) {
+        cartBadge.textContent = totalAmount > 0 ? totalAmount : ""; // Show total amount or empty
     }
 }
 
