@@ -1,5 +1,5 @@
 const content = document.getElementById('content')
-import { LoadHomeScreen } from './prod-listing.js';
+import { loadHomeScreen } from './prod-listing.js';
 import { loadShoppingCart, changePath } from './shop-cart.js'
 import { loadCart } from './addToCart.js';
 
@@ -9,7 +9,7 @@ const routerConfig = {
     '/': {
         path: '/pages/home.html', //the html file related to the path
         loadFunction: () => {
-            loadProducts(); // Call the loadProducts function
+            loadHomeScreen(); // Call the loadHomeScreen function
             loadShoppingCart(); // call the test function for the popup
             loadCart();
         }

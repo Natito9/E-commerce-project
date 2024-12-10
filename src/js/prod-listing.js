@@ -2,14 +2,17 @@ import "../styles/prod-listing.css";
 import { fetchProducts } from "./api.js";
 import { openProductModal } from "./product-descript.js";
 import { addToCart } from "./addToCart.js";
-import { fetchProductsCategories,createCategoryDropdown,setupCategoryFilter } from './filters.js'
+import {
+  fetchProductsCategories,
+  createCategoryDropdown,
+  setupCategoryFilter,
+} from "./filters.js";
 
-
-export async function LoadHomeScreen(params) {
-loadProducts();
-fetchProductsCategories();
-createCategoryDropdown();
-setupCategoryFilter();
+export async function loadHomeScreen(params) {
+  loadProducts();
+  fetchProductsCategories();
+  createCategoryDropdown();
+  setupCategoryFilter();
 }
 
 export async function loadProducts() {
@@ -39,20 +42,16 @@ export async function loadProducts() {
     .getElementById("product-list")
     .addEventListener("click", function (event) {
       const productId = event.target.getAttribute("data-id");
-      openProductModal(productId)
       if (event.target.classList.contains("add-to-cart")) {
         const product = result.find((item) => item.id === parseInt(productId));
         if (product) {
           addToCart(product);
         }
+      } else {
+        openProductModal(productId);
       }
     });
 
   // Hide loading spinner
   document.getElementById("loading-spinner").style.display = "none";
-
-
 }
-
-
-
