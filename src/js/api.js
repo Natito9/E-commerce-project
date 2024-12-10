@@ -8,10 +8,9 @@ export async function fetchProducts() {
 
     //Add the key "Amount" to the API objects 
         const key = "Amount";
-        for (let i = 0; i < 20; i++){
+        for (let i = 0; i < products.length; i++){
             products[i][key] = 0;
         }
-        console.log(products)
         return products;
 
     } catch(error){

@@ -67,6 +67,12 @@
   font-size: 14px;
 }
 
+.add-to-cart {
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px 10px;
+}
+
 /* Cart Counter Styling */
 #cart-counter-container {
   display: flex;
