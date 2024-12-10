@@ -1,6 +1,7 @@
 import "../styles/checkout-style.css";
 import { cart } from "./addToCart";
 
+
 //This function displays the current CART including the item amount and prices
 export async function renderCart() {
 	const cartEl = document.querySelector("#checkout-cart");

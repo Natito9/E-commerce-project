@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 20px 40px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -37,11 +37,31 @@
     margin-left: 10px;
 }
 
+.cart-icon{
+    display:flex;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
 
+
+}
 .cart-icon img {
-    width: 30px; /* Adjust size */
-    height: 30px;
+    width: 40px; 
+    height: 40px;
     transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cart-badge {
+    width: 25px; 
+    height: 25px; 
+    border-radius: 50%; 
+    background-color: rgb(251, 63, 63); 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem; 
+    font-weight: bold; 
 }
 
 .cart-icon img:hover {

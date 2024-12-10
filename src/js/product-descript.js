@@ -2,6 +2,7 @@
 import { fetchSingleProduct } from "./api";
 import { addToCart } from "./addToCart";
 import { addItemToCart } from "./shop-cart";
+import {calculateItemAmount} from "./shop-cart"
 
 // IMPORT STYLES:
 import "../styles/product-descript.css";
@@ -38,6 +39,7 @@ export async function openProductModal(productId) {
       //VERY IMPORTANT TO KEEP THIS AS ADDTOCART AND NOT ADDITEMTOCART SINCE OTHERWISE MORE THAN ONE OF THE PRODUCT IS ADDED TO THE CART
 			addToCart(product);
       console.log(product)
+      
 		});
 
 	// add event listener for close button
