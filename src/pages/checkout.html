@@ -1,7 +1,7 @@
 <div id="checkout-page">
 	<section id="checkout-form-section">
 		<form action="" id="checkout-form" class="checkout-form">
-			<h2>Contact</h2>
+			<h2 class="checkout-h2">Contact</h2>
 			<div class="checkout-contact">
 				<div class="checkout-mail-div">
 					<label for="checkout-mail">Mail:</label>
@@ -18,7 +18,7 @@
 					<label for="checkout-subscribe">Email me with news and offers</label>
 				</div>
 			</div>
-			<h2>Delivery</h2>
+			<h2 class="checkout-h2">Delivery</h2>
 			<div class="checkout-delivery">
 				<label for="checkout-country">Country</label>
 				<select name="country" id="checkout-country" class="select" autocomplete="off" >
@@ -63,7 +63,7 @@
 				<input type="tel" id="checkout-phone" autocomplete="off"  />
 			</div>
 
-			<h2>Shipping method</h2>
+			<h2 class="checkout-h2">Shipping method</h2>
 			<select
 				name="Shipping method"
 				id="checkout-shipping"
@@ -76,7 +76,7 @@
 				<option value="10.99">Overnight (10.99$)</option>
 			</select>
 
-			<h2>Payment</h2>
+			<h2 class="checkout-h2">Payment</h2>
 			<p>All transactions are secure and encrypted</p>
 			<label for="checkout-payment"></label>
 			<select name="" id="checkout-payment" class="select" >
@@ -85,13 +85,13 @@
 			</select>
 
 			<div id="checkout-paypal" style="display: none">
-				<h2>Paypal</h2>
+				<h2 class="checkout-h2">Paypal</h2>
 				<label for="checkout-paypal-email">Linked email</label>
 				<input type="email" id="checkout-paypal-email" />
 			</div>
 
 			<div id="checkout-credit-card" style="display: none">
-				<h2>Credit card</h2>
+				<h2 class="checkout-h2">Credit card</h2>
 				<label for="checkout-card-number">Card number:</label>
 				<input
 					type="text"
@@ -137,11 +137,11 @@
 			<section id="checkout-order-summary">
 				<div>
 					<h1 id="checkout-cart">Cart</h1>
-					<div id="checkout-items"></div>
+					<div id="checkout-items" class="checkout-items"></div>
 				</div>
 				<div class="checkout-price">
 					<h4 id="checkout-shipping-cost">Shipping:</h4>
-					<h2 id="checkout-total-price">Total:</h2>
+					<h2 id="checkout-total-price" class="checkout-h2">Total:</h2>
 				</div>
 			</section>
 

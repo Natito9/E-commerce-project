@@ -41,10 +41,12 @@ export async function renderCart() {
 		item.classList.add("product");
 		item.innerHTML = `
         <img src="${cart[i].image}" class="checkout-product-img">
-		<p>${cart[i].price}$</p>
+		<div>
         <h3>${cart[i].title}</h3>
+		<p>${cart[i].price}$</p>
+		</div>
         <h3 class="amount">${cart[i].Amount}</h3>
-		<h3>${Math.round(cart[i].price * cart[i].Amount * 100) / 100}$</h3>
+		<h3 class="product-total">${Math.round(cart[i].price * cart[i].Amount * 100) / 100}$</h3>
         `;
 		checkoutItems.appendChild(item);
 	}
