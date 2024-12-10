@@ -49,3 +49,7 @@ text-wrap: balance;
 #root, #__next {
 isolation: isolate;
 }
+
+button{
+  cursor: pointer;
+}
