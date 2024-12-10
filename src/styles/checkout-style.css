@@ -21,6 +21,21 @@
     margin-block: 0px;
 }
 
+.checkout-form{
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10%;
+    margin-top: 10px;
+}
+
+input[type=text], input[type=tel], input[type=email]{
+    transition-duration: 0.2s;
+    outline: none;
+}
+input[type=text]:focus, input[type=tel]:focus, input[type=email]:focus{
+    border: 2px solid var(--button-secondary-color)
+}
+
 body {
 	background-color: var(--main-bg-color);
 }
@@ -34,14 +49,40 @@ select{
 
 }
 
-.checkout-delivery{
+.checkout-mail-div{
     display: grid;
+    width: 100%;
 }
 
-.checkout-form{
+.checkout-mail{
+    width: 100%;
+    border: solid var(--button-secondary-color) 1px;
+}
+
+.checkout-checkbox-div{
     display: flex;
-    flex-direction: column;
-    padding-inline: 10%;
+    width: 100%;
+}
+
+.checkout-subscribe{
+    border-style: none;
+    color: green;
+    margin-right: 10px;
+}
+
+.checkout-contact{
+    display: flex;
+    flex-flow: wrap row;
+    margin-bottom: 10px;
+}
+
+.checkout-delivery{
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.checkout-paypal, .checkout-credit-card{
+    margin-bottom: 10px;
 }
 
 .checkout-product-img{
@@ -54,35 +95,29 @@ select{
     align-items: center;
 }
 
-.amounter{
-    border: solid var(--main-text-color) 1px;
-    display: grid;
-    grid-template-columns: repeat(3 1fr);
-    grid-template-rows: auto;
-    column-gap: 10px;
-    width: 100px;
+.select{
+    background-color: var(--button-secondary-color);
+    color: var(--secondary-button-text-color);
+    border: none;
+    padding: 10px 10px;
+    margin-bottom: 10px;
 }
 
-.minus-btn{
+.checkout-pay{
+    background-color: var(--button-secondary-color);
+    color: var(--secondary-button-text-color);
     border-style: none;
-    grid-column-start: 1;
-
+    cursor: pointer;
+    height: 50px;
+    font-weight: 900;
 }
 
-.plus-btn{
-    border-style: none;
-    grid-column-start: 3;
-    margin: 0px;
+.checkout-price{
+    margin-top: 50px;
 }
 
-.amount{
-    grid-column-start: 2;
-
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 300;
+.thank-you{
+    color: red;
 }
 
 @media (min-width: 425px){

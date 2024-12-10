@@ -1,87 +1,151 @@
 <div id="checkout-page">
-<section id="checkout-form-section">
-	<form action="" id="checkout-form" class="checkout-form">
-		<h2>Contact</h2>
-		<label for="checkout-mail">Mail:</label>
-		<input type="email" id="checkout-mail" autocomplete="off" required>
+	<section id="checkout-form-section">
+		<form action="" id="checkout-form" class="checkout-form">
+			<h2>Contact</h2>
+			<div class="checkout-contact">
+				<div class="checkout-mail-div">
+					<label for="checkout-mail">Mail:</label>
+					<input type="email" id="checkout-mail" class="checkout-mail" autocomplete="off" />
+				</div>
+				<div class="checkout-checkbox-div">
+					<input
+					type="checkbox"
+					name="Email me with news and offers"
+					id="checkout-subscribe"
+					class="checkout-subscribe"
+					autocomplete="off"
+					/>
+					<label for="checkout-subscribe">Email me with news and offers</label>
+				</div>
+			</div>
+			<h2>Delivery</h2>
+			<div class="checkout-delivery">
+				<label for="checkout-country">Country</label>
+				<select name="country" id="checkout-country" class="select" autocomplete="off" >
+					<option value="swed">Sweden</option>
+					<option value="else">Somewhere else on earth</option>
+					<option value="mars">Martian dynasty</option>
+				</select>
 
-		<label for="checkout-subscribe">Email me with news and offers</label>
-		<input type="checkbox" name="Email me with news and offers" id="checkout-subscribe" autocomplete="off">
-		<h2>Delivery</h2>
-		<div class="checkout-delivery">
-			<label for="checkout-country">Country</label>
-			<select name="country" id="checkout-country" autocomplete="off">
-				<option value="swed">Sweden</option>
-				<option value="else">Somewhere else on earth</option>
-				<option value="mars">Martian dynasty</option>
+				<label for="checkout-first-name">First name:</label>
+				<input
+					type="text"
+					id="checkout-first-name"
+					autocomplete="off"
+					
+				/>
+
+				<label for="checkout-last-name">Last name:</label>
+				<input
+					type="text"
+					id="checkout-last-name"
+					autocomplete="off"
+					
+				/>
+
+				<label for="checkout-address">Address:</label>
+				<input type="text" id="checkout-address" autocomplete="off"  />
+
+				<label for="checkout-postal-code">Postal code:</label>
+				<input
+					type="text"
+					id="checkout-postal-code"
+					pattern="[0-9]{5}"
+					inputmode="numeric"
+					autocomplete="off"
+					
+				/>
+
+				<label for="checkout-city">City:</label>
+				<input type="text" id="checkout-city" autocomplete="off"  />
+
+				<label for="checkout-phone">Phone number:</label>
+				<input type="tel" id="checkout-phone" autocomplete="off"  />
+			</div>
+
+			<h2>Shipping method</h2>
+			<select
+				name="Shipping method"
+				id="checkout-shipping"
+				autocomplete="off"
+				
+				class="select"
+			>
+				<option value="3.99">Normal (3.99$)</option>
+				<option value="7.99">Express (7.99$)</option>
+				<option value="10.99">Overnight (10.99$)</option>
 			</select>
-			
-			<label for="checkout-first-name">First name:</label>
-			<input type="text" id="checkout-first-name" autocomplete="off" required>
-			
-			<label for="checkout-last-name">Last name:</label>
-			<input type="text" id="checkout-last-name" autocomplete="off" required>
-			
-			<label for="checkout-address">Address:</label>
-			<input type="text" id="checkout-address" autocomplete="off" required>
-			
-			<label for="checkout-postal-code">Postal code:</label>
-			<input type="text" id="checkout-postal-code" pattern="[0-9]{5}" inputmode="numeric" autocomplete="off" required>
-			
-			<label for="checkout-city">City:</label>
-			<input type="text" id="checkout-city" autocomplete="off" required>
-			
-			<label for="checkout-phone">Phone number:</label>
-			<input type="tel" id="checkout-phone" autocomplete="off" required>
-		</div>
 
-		<h2>Shipping method</h2>
-		<select name="Shipping method" id="checkout-shipping" autocomplete="off" required>
-			<option value=3.99>Normal (3.99$)</option>
-			<option value=7.99>Express (7.99$)</option>
-			<option value=10.99>Overnight (10.99$)</option>
-		</select>
+			<h2>Payment</h2>
+			<p>All transactions are secure and encrypted</p>
+			<label for="checkout-payment"></label>
+			<select name="" id="checkout-payment" class="select" >
+				<option value="0">PayPal</option>
+				<option value="1">Credit card</option>
+			</select>
 
+			<div id="checkout-paypal" style="display: none">
+				<h2>Paypal</h2>
+				<label for="checkout-paypal-email">Linked email</label>
+				<input type="email" id="checkout-paypal-email" />
+			</div>
 
-		<h2>Payment</h2>
-		<p>All transactions are secure and encrypted</p>
-		<label for="checkout-payment"></label>
-		<select name="" id="checkout-payment">
-			<!-- Maybe now? -->
-			<option value=0>PayPal</option>
-			<option value=1>Credit card</option>
-		</select>
+			<div id="checkout-credit-card" style="display: none">
+				<h2>Credit card</h2>
+				<label for="checkout-card-number">Card number:</label>
+				<input
+					type="text"
+					id="checkout-card-number"
+					placeholder="XXXX XXXX XXXX XXXX"
+					inputmode="numeric"
+					pattern="[0-9\s]{12,19}"
+					autocomplete="off"
+					
+				/>
 
-		<div id="checkout-paypal" style="display: none;">
-			<h2>Paypal</h2>
-			<label for="checkout-paypal-email">Linked email</label>
-			<input type="email" id="checkout-paypal-email">
-		</div>
+				<label for="checkout-expiration-date">Expiration date:</label>
+				<input
+					type="text"
+					id="checkout-expiration-date"
+					placeholder="MMYY"
+					inputmode="numeric"
+					pattern="[0-9\s]{4}"
+					autocomplete="off"
+					
+				/>
 
-		<div id="checkout-credit-card" style="display: none;">
-			<h2>Credit card</h2>
-			<label for="checkout-card-number">Card number:</label>
-			<input type="text" id="checkout-card-number" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" pattern="[0-9\s]{12,19}" autocomplete="off" required>
-			
-			<label for="checkout-expiration-date">Expiration date:</label>
-			<input type="text" id="checkout-expiration-date" placeholder="MMYY" inputmode="numeric" pattern="[0-9\s]{4}" autocomplete="off" required>
-			
-			<label for="checkout-security-code">Security code:</label>
-			<input type="text" id="checkout-security-code" placeholder="CVV" inputmode="numeric" pattern="[0-9\s]{3}" autocomplete="off" required>
-			
-			<label for="checkout-card-name">Name on card:</label>
-			<input type="text" id="checkout-card-name" autocomplete="off" required>
-		</div>
+				<label for="checkout-security-code">Security code:</label>
+				<input
+					type="text"
+					id="checkout-security-code"
+					placeholder="CVV"
+					inputmode="numeric"
+					pattern="[0-9\s]{3}"
+					autocomplete="off"
+					
+				/>
 
-		<section id="checkout-order-summary">
-			<h1 id="checkout-cart">Cart</h1>
-			<div id="checkout-items"></div>
-			<h2 id="checkout-shipping-cost">Shipping: </h2>
-			<h2 id="checkout-total-price">Total: </h2>
-		</section>
+				<label for="checkout-card-name">Name on card:</label>
+				<input
+					type="text"
+					id="checkout-card-name"
+					autocomplete="off"
+					
+				/>
+			</div>
 
+			<section id="checkout-order-summary">
+				<div>
+					<h1 id="checkout-cart">Cart</h1>
+					<div id="checkout-items"></div>
+				</div>
+				<div class="checkout-price">
+					<h4 id="checkout-shipping-cost">Shipping:</h4>
+					<h2 id="checkout-total-price">Total:</h2>
+				</div>
+			</section>
 
-		<input type="submit" value="Pay now">
-	</form>
-</section>
+			<input type="submit" value="Pay now" id="checkout-pay" class="checkout-pay"/>
+		</form>
+	</section>
 </div>
