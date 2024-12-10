@@ -19,6 +19,7 @@ export async function renderCart() {
 	})
 
 	//add eventlisteners for payment options
+	//maybe now?
 	document.querySelector("#checkout-payment").addEventListener("click", () => {
 		togglePayment(document.querySelector("#checkout-payment").value)
 	})
