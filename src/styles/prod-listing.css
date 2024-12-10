@@ -76,6 +76,13 @@
   margin-bottom: 30px;
 }
 
+.add-to-cart:hover {
+  cursor: pointer;
+  background-color: var(--button-secondary-color);
+  color: var(--secondary-button-text-color);
+  border: none;
+}
+
 /* Cart Counter Styling */
 #cart-counter-container {
   display: flex;
