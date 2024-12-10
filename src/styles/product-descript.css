@@ -10,21 +10,16 @@
     --button-secondary-color: #647b6e;
 }
 
-
-
-body {
-
-    
-}
-
 #product-descript-container {
     position: relative;
     top: 35%; left: 35%;
     min-height: 12.5rem;
     width: 25rem;
     background: #ffffff; 
+    display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
 }
 
 .product-descript-card {
@@ -36,11 +31,13 @@ body {
     position: relative;
     margin: 2rem;
     font-size: 0.8rem;
+    
 }
 
 dialog::backdrop {
-    opacity: 0.95;
-    backdrop-filter: blur(5px);
+    opacity: 0.5;
+    /* backdrop-filter: blur(5px); */
+    background-color: black;
 }
 
 .product-image {
@@ -54,12 +51,20 @@ dialog::backdrop {
 }
 
 .product-descript-card .add-to-cart .close-btn {
+   
     
-
 }
-
-
+/* 
 @media (min-width: 425px) {
+    #product-descript-container {
+        position: relative;
     
-
+        }
 }
+
+@media (max-width: 768px) {
+    #product-descript-container {
+        position: relative;
+         }
+}
+    */
