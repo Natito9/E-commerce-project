@@ -83,7 +83,7 @@
   border: none;
 }
 
-/* Cart Counter Styling */
+
 #cart-counter-container {
   display: flex;
   align-items: center;
@@ -159,10 +159,10 @@ button {
   margin-top: auto;
   margin:auto;
 }
-/* Mobile-Responsive Styles */
+
 @media screen and (max-width: 768px) {
   #product-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 10px;
   }
 
@@ -182,7 +182,7 @@ button {
 
 @media screen and (max-width: 480px) {
   #product-list {
-    grid-template-columns: repeat(1, 1fr); /* 1 card per row */
+    grid-template-columns: repeat(1, 1fr); 
   }
 
   .card {

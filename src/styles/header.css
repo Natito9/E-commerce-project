@@ -7,7 +7,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensure it's above other elements */
+    z-index: 1000; 
 }
 
 
@@ -65,20 +65,20 @@
 }
 
 .cart-icon img:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-    filter: brightness(1.2); /* Lighten on hover */
+    transform: scale(1.1); 
+    filter: brightness(1.2); 
 }
 
 .store-name{
     cursor: pointer;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
 
 
     #mobile-screen {
-        height: 90vh; /* Reserve space for the bottom nav */
+        height: 90vh; 
     }
 
     .header {
@@ -97,7 +97,7 @@
 
     .cart-icon img {
         display: block;
-        width: 25px; /* Adjust size for mobile */
+        width: 25px; 
         height: 25px;
         transition: transform 0.3s ease, filter 0.3s ease;
     }

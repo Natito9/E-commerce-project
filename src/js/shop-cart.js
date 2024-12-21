@@ -1,8 +1,7 @@
-import {cart} from "./addToCart"; 
+import {cart, addToCart} from "./addToCart"; 
 
 
 export async function loadShoppingCart() {
-    // const openCartButton = document.getElementById("sc-open-button");
     const openCartButton = document.querySelector(".cart-icon");
   
     openCartButton.addEventListener("click", () => {
@@ -12,7 +11,7 @@ export async function loadShoppingCart() {
 
 
 function openCart(){
-    console.log(cart)
+
     displayCart();
     displayProducts();
 }; 
@@ -22,7 +21,7 @@ export function displayCart() {
     // Create the overlay (background) 
     const scOverlay = document.createElement("div");
     scOverlay.classList.add("cart-overlay");
-    document.body.appendChild(scOverlay); //this MIGHT need to be changed
+    document.body.appendChild(scOverlay);
 
     // Create the section (pop-up cart) 
     const scSection = document.createElement("div");
@@ -168,7 +167,7 @@ function updateSubtotal() {
     }
 }
 
-function calculateItemAmount() {
+export function calculateItemAmount() {
     const totalAmount = cart.reduce((total, item) => total + item.Amount, 0);
     const scNumberItems = document.querySelector("#productsAmount"); 
     const cartBadge = document.querySelector(".cart-badge"); 
@@ -192,6 +191,10 @@ function createAmountButton(product) {
     removeButton.id = "remove-button";
     removeButton.addEventListener("click", () => {
         removeItemFromCart(product);
+        displayProducts();
+        updateSubtotal();
+        calculateItemAmount();
+        saveCart(); 
         amountLabel.textContent = `${product.Amount}`; 
     });
     buttonContainer.appendChild(removeButton); 
@@ -201,7 +204,12 @@ function createAmountButton(product) {
     addButton.textContent = "+";
     addButton.id = "add-button";
     addButton.addEventListener("click", () => {
-        addItemToCart(product);
+        addToCart(product);
+        incrementProductAmount(product);
+        displayProducts();
+        updateSubtotal();
+        calculateItemAmount();
+        saveCart();
         amountLabel.textContent = `${product.Amount}`; 
     });
 
@@ -215,20 +223,15 @@ function createAmountButton(product) {
 }
 
 
-export function addItemToCart(product) {
+function incrementProductAmount(product){
     const existingProduct = cart.find(e => e.id === product.id);
     
     if (existingProduct) {
         existingProduct.Amount += 1; 
     } else {
-        const newProduct = { ...product, Amount: 1 };  
+        const newProduct = { ...product, Amount: 1 };
         cart.push(newProduct);
     }
-    
-    displayProducts();
-    updateSubtotal();
-    calculateItemAmount();
-    saveCart();// save the cart
 }
 
 
@@ -240,11 +243,7 @@ function removeItemFromCart(product) {
         } else {
             cart.splice(cart.indexOf(cartItem), 1); //remove if 1
         }
-
-        displayProducts();
-        updateSubtotal();
-        calculateItemAmount();
-        saveCart(); // Call to save the cart
+      
     } else {
         console.log(`${product.title} not found in cart`);
     }
@@ -268,13 +267,11 @@ export function loadCart() {
 	// Check if there is a cart in localStorage
 	const savedCart = localStorage.getItem("cart");
 	if (savedCart) {
-		cart = JSON.parse(savedCart); // Parse and load cart from localStorage
-		console.log("Current cart contents:", cart); 
-		saveCart(); // Save the cart after loading (if needed)
+		cart = JSON.parse(savedCart); 
+		saveCart(); 
 	}
 }
 
 export function saveCart() {
-	localStorage.setItem("cart", JSON.stringify(cart)); // Save the cart to localStorage
-	console.log("Cart saved to local storage:", cart);
+	localStorage.setItem("cart", JSON.stringify(cart)); 
 }
